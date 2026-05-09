@@ -1,0 +1,96 @@
+{
+  "theme_archetype": "Warm Authority (Custom based on Archetype 1 & 4) - Light Theme with bold red accents",
+  "brand_colors": {
+    "primary": "#ec5c53",
+    "primary_dark": "#e0523e",
+    "background": "#FDFBF7",
+    "surface": "#FFFFFF",
+    "surface_secondary": "#F5F2EA",
+    "text_dark": "#2A1614",
+    "text_light": "#FFFFFF",
+    "text_muted": "#755D5A",
+    "border": "#E8DFD8"
+  },
+  "typography": {
+    "heading_font": "Cabinet Grotesk",
+    "body_font": "Work Sans",
+    "rules": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl tracking-tighter text-text_dark font-black",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl tracking-tight text-text_dark font-bold",
+      "body": "text-base leading-relaxed text-text_dark font-normal",
+      "buttons": "text-sm tracking-wide uppercase font-semibold"
+    }
+  },
+  "layout_spacing": {
+    "container": "max-w-7xl mx-auto px-6 sm:px-8 lg:px-12",
+    "section_padding": "py-20 lg:py-32",
+    "card_padding": "p-8 lg:p-10",
+    "grid_gap": "gap-8 lg:gap-12",
+    "border_radius": "rounded-2xl"
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-primary hover:bg-primary_dark text-white rounded-full px-8 py-4 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5",
+      "secondary": "bg-white text-primary border border-primary hover:bg-surface_secondary rounded-full px-8 py-4 transition-all duration-300",
+      "ghost": "text-text_dark hover:text-primary transition-colors duration-200"
+    },
+    "cards": {
+      "default": "bg-white rounded-2xl p-8 border border-border shadow-sm hover:shadow-xl transition-shadow duration-300 group",
+      "highlighted": "bg-primary text-white rounded-2xl p-8 shadow-lg relative overflow-hidden"
+    },
+    "inputs": "bg-surface_secondary border-transparent focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 rounded-xl px-4 py-3 w-full transition-all text-text_dark"
+  },
+  "media": {
+    "logo": "https://customer-assets.emergentagent.com/job_1e2fbffe-2a58-4393-95e1-1619caba1104/artifacts/n4whf5t2_veritas%20logo.jpeg",
+    "hero_background": "https://static.prod-images.emergentagent.com/jobs/1e2fbffe-2a58-4393-95e1-1619caba1104/images/ade8e5991e346650314644de4082285fe8b99ffed9c97e4dcd3525ac02c4a1f7.png",
+    "apostille_hero": "https://static.prod-images.emergentagent.com/jobs/1e2fbffe-2a58-4393-95e1-1619caba1104/images/f02046d11c67bba288dc8973c5ac2fb42654142083a1edf100e4393f5aca8977.png",
+    "university_1": "https://images.unsplash.com/photo-1590579491624-f98f36d4c763",
+    "university_2": "https://images.unsplash.com/photo-1620650764196-fd37ec58c687",
+    "passport_desk": "https://images.unsplash.com/photo-1473213183008-891c09fe6404",
+    "passport_pile": "https://images.unsplash.com/photo-1532995092664-7027dcede29f"
+  },
+  "page_specific_instructions": {
+    "global_nav": {
+      "style": "Glassmorphism over hero (backdrop-blur-xl bg-white/80 border-b border-border/50), solid white on scroll. Include Logo left, Links center, CTA right.",
+      "links": ["Home", "Services", "Scholarships", "Apostille", "About", "Notice", "Contact"]
+    },
+    "home": {
+      "hero": "Split layout. Left: H1 with rich text hierarchy, CTA 'Book Free Consultation'. Right/Background: Abstract coral image ('hero_background'). Or use university image with heavy red overlay (bg-primary/90).",
+      "metrics": "Bento grid for '85% success, 30+ countries, 2 alumni stories'. Use solid red blocks (#ec5c53) with bold white text for key stats.",
+      "services_overview": "Teaser cards for top services with subtle hover lifts."
+    },
+    "services": {
+      "layout": "Grid of plan cards. PS/SOP ₹999, SP ₹799, Both ₹1499, Guidance ₹399.",
+      "plan_cards": "Use 'cards.highlighted' for the most popular plan, 'cards.default' for others. Prominent pricing, bullet points, CTA 'Book Slot'.",
+      "booking_form": "Shadcn-styled form (package select, name, email, mobile). Clean, spacious fields."
+    },
+    "scholarships": {
+      "layout": "Sidebar filter (degree level, country) + Main grid of results.",
+      "cards": "Include flag emojis, country name, scholarship title, deadline, and 'Apply Now' button.",
+      "apply_form": "Multi-step or long clear form for scholarship application."
+    },
+    "apostille": {
+      "layout": "Timeline/Stepped process. 5 stages using vertical connector lines.",
+      "visuals": "Use 'apostille_hero' image for header. High-end, official feel.",
+      "order_form": "Clear segmented form for document pickup and processing."
+    },
+    "notice": {
+      "layout": "Vertical timeline/calendar for updates. Dates prominent on the left, details on the right."
+    },
+    "contact": {
+      "layout": "Split layout. Left: Contact info, WhatsApp quick-chat buttons (green or solid dark red). Right: Standard contact form."
+    },
+    "admin_dashboard": {
+      "theme": "Swiss & High-Contrast (Archetype 4) for clarity. High legibility, dense data.",
+      "sidebar": "Dark red (#e0523e) or pure white with red accents. Tabs: Bookings, Applications, Orders, Messages.",
+      "tables": "Shadcn tables with clear status badges (Pending, Approved, Processed). Export CSV button top right."
+    }
+  },
+  "global_rules": {
+    "accessibility": "All interactive elements MUST include data-testid. Use descriptive aria-labels.",
+    "icons": "Use lucide-react. Stroke width 1.5 for elegance.",
+    "transitions": "Use Framer Motion for page transitions and staggering list elements.",
+    "hover_states": "Every button and link must have a defined hover state (e.g., hover:text-primary_dark or hover:-translate-y-1).",
+    "tailwind_config": "Ensure the main agent extends Tailwind config with the brand_colors as primary, primary_dark, etc. Add the font-families Cabinet Grotesk (heading) and Work Sans (body) to the config."
+  }
+}
