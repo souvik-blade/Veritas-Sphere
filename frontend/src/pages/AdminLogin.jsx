@@ -30,9 +30,8 @@ export default function AdminLogin() {
       <div className="bg-brand text-white relative overflow-hidden hidden lg:block">
         <div className="absolute inset-0 grain opacity-25" />
         <div className="relative h-full flex flex-col justify-between p-12">
-          <div className="flex items-center gap-3">
-            <img src={LOGO_URL} alt="Veritas" className="w-14 h-14 rounded-xl object-contain bg-white p-1.5 ring-2 ring-white/40" />
-            <div className="font-display font-extrabold text-xl">Veritas Sphere</div>
+          <div className="flex items-center">
+            <img src={LOGO_URL} alt="Veritas" className="h-14 w-auto rounded-xl object-contain bg-white p-1.5 ring-2 ring-white/40" />
           </div>
           <div>
             <div className="font-display text-5xl font-black leading-[1.05] tracking-tight">

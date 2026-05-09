@@ -33,12 +33,8 @@ function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 lg:px-10 h-[72px] flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3" data-testid="nav-logo">
-          <img src={LOGO_URL} alt="Veritas Sphere" className="w-12 h-12 rounded-xl object-contain bg-white p-1 ring-1 ring-brand-line" />
-          <div className="leading-tight">
-            <div className="font-display font-extrabold text-[19px] text-brand-ink tracking-tight">Veritas Sphere</div>
-            <div className="text-[11px] uppercase tracking-[0.18em] text-brand-muted">Scholarship Experts</div>
-          </div>
+        <Link to="/" className="flex items-center" data-testid="nav-logo">
+          <img src={LOGO_URL} alt="Veritas Sphere" className="h-12 w-auto rounded-lg object-contain bg-white p-1 ring-1 ring-brand-line" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8">
@@ -116,12 +112,8 @@ function Footer() {
       <div className="absolute inset-0 grain opacity-30 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 grid grid-cols-1 md:grid-cols-4 gap-10 relative">
         <div className="md:col-span-1">
-          <div className="flex items-center gap-3">
-            <img src={LOGO_URL} alt="Veritas Sphere" className="w-14 h-14 rounded-xl object-contain bg-white p-1.5 ring-1 ring-white/20" />
-            <div>
-              <div className="font-display text-xl font-extrabold">Veritas Sphere</div>
-              <div className="text-[11px] uppercase tracking-[0.18em] text-white/60">Scholarship Experts</div>
-            </div>
+          <div className="flex items-center">
+            <img src={LOGO_URL} alt="Veritas Sphere" className="h-16 w-auto rounded-xl object-contain bg-white p-1.5 ring-1 ring-white/20" />
           </div>
           <p className="mt-5 text-white/70 text-sm leading-relaxed">
             Personalised end-to-end guidance for international scholarships, study-abroad admissions and apostille services.

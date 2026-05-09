@@ -108,12 +108,8 @@ export default function AdminDashboard() {
       {/* Header */}
       <header className="bg-white border-b border-brand-line sticky top-0 z-30" data-testid="admin-header">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 h-[70px] flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <img src={LOGO_URL} alt="Veritas" className="w-11 h-11 rounded-lg object-contain bg-white p-1 ring-1 ring-brand-line" />
-            <div>
-              <div className="font-display font-extrabold text-brand-ink">Admin Console</div>
-              <div className="text-[11px] uppercase tracking-[0.18em] text-brand-muted">Veritas Sphere</div>
-            </div>
+        <div className="flex items-center gap-3">
+            <img src={LOGO_URL} alt="Veritas" className="h-12 w-auto rounded-lg object-contain bg-white p-1 ring-1 ring-brand-line" />
           </div>
           <div className="flex items-center gap-3">
             <div className="hidden sm:block text-right">
