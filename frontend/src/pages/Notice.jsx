@@ -6,8 +6,8 @@ const NOTICES = [
   {
     type: "Internship",
     icon: Briefcase,
-    title: "Internship Opportunity — Applications Open",
-    body: "Veritas Sphere is opening internship slots for the upcoming cohort. Stipend-based opportunities for college students passionate about scholarships and study-abroad guidance. Apply via the Contact page with subject 'Internship'.",
+    title: "Internship Opportunity — Applications Opening Soon",
+    body: "Veritas Sphere will soon be opening internship slots for the upcoming cohort. Stipend-based opportunities for college students passionate about scholarships and study-abroad guidance. Applications are not yet open — stay tuned for the announcement.",
   },
 ];
 

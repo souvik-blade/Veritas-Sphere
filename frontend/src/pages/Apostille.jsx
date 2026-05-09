@@ -10,7 +10,7 @@ const STEPS = [
   { icon: ShieldCheck, title: "Authentication", desc: "Documents are verified by the issuing authority — university, government office or notary." },
   { icon: Stamp, title: "Apostille Certification", desc: "Official stamp/seal attached by the designated MEA / state authority — confirming international validity." },
   { icon: ImageIcon, title: "Verification Preview", desc: "Before final delivery we send you a clear image of the completed apostilled documents so you can verify everything is in order." },
-  { icon: Truck, title: "Online Delivery", desc: "Apostilled documents are delivered to you online with digital confirmation and tracking." },
+  { icon: Truck, title: "Home Delivery", desc: "After your verification approval, the apostilled documents are couriered to your home address with tracking and digital confirmation." },
 ];
 
 export default function Apostille() {
@@ -28,7 +28,7 @@ export default function Apostille() {
             </h1>
             <p className="mt-5 text-brand-muted text-lg leading-relaxed">
               Apostille is an international certification that verifies your document's authenticity for any country in
-              the Hague Convention. We handle the entire process online — submission, translation, authentication and digital delivery.
+              the Hague Convention. We receive your documents online and, after processing, courier the apostilled originals to your home address.
             </p>
             <div className="mt-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand/10 text-brand text-[12px] font-semibold">
               <ShieldCheck size={14} strokeWidth={2} /> Orders are accepted only via the form below — calls are for queries only.
