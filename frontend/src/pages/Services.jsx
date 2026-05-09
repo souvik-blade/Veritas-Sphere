@@ -11,7 +11,7 @@ const PLANS = [
     price: 999,
     timeline: "5–6 work days",
     desc: "A standout PS or SOP crafted around your story, achievements, and target programme.",
-    bullets: ["Story-mining call", "2 personalised drafts", "Unlimited language edits", "Tailored to your scholarship"],
+    bullets: ["Story-mining call", "2 personalised drafts", "1 revision", "Tailored to your scholarship"],
     icon: FileSignature,
   },
   {

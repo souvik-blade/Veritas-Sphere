@@ -16,7 +16,8 @@ export const LOGO_URL =
 
 export const WHATSAPP_NUMBERS = [
   { label: "+91 80074 86195", number: "918007486195" },
-  { label: "+91 87001 61753", number: "918700161753" },
+  { label: "+91 88604 11049", number: "918860411049" },
+  { label: "+91 80538 46002", number: "918053846002" },
 ];
 
 export const PACKAGES = [

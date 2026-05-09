@@ -5,11 +5,11 @@ import SectionTitle from "@/components/SectionTitle";
 import { api } from "@/lib/config";
 
 const STEPS = [
-  { icon: FileCheck2, title: "Document Collection", desc: "Submit your academic, personal or legal documents online. We verify originals before processing." },
+  { icon: FileCheck2, title: "Online Submission", desc: "Submit your academic, personal or legal documents online — no physical pickup required. We verify scans before processing." },
   { icon: Languages, title: "Translation (if needed)", desc: "Certified translators convert documents into the required language for international acceptance." },
   { icon: ShieldCheck, title: "Authentication", desc: "Documents are verified by the issuing authority — university, government office or notary." },
   { icon: Stamp, title: "Apostille Certification", desc: "Official stamp/seal attached by the designated MEA / state authority — confirming international validity." },
-  { icon: Truck, title: "Delivery", desc: "Apostilled documents couriered back to you with digital confirmation and live tracking." },
+  { icon: Truck, title: "Online Delivery", desc: "Apostilled documents are delivered to you online with digital confirmation and tracking." },
 ];
 
 export default function Apostille() {
@@ -27,14 +27,14 @@ export default function Apostille() {
             </h1>
             <p className="mt-5 text-brand-muted text-lg leading-relaxed">
               Apostille is an international certification that verifies your document's authenticity for any country in
-              the Hague Convention. We handle pickup, translation, authentication and delivery — end to end.
+              the Hague Convention. We handle the entire process online — submission, translation, authentication and digital delivery.
             </p>
+            <div className="mt-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand/10 text-brand text-[12px] font-semibold">
+              <ShieldCheck size={14} strokeWidth={2} /> Apostille is processed only via the form below — no other channel.
+            </div>
             <div className="mt-7 flex flex-wrap gap-4">
               <a href="#order" className="btn-brand inline-flex items-center gap-2" data-testid="apostille-cta-order">
                 Start an apostille order <ArrowRight size={18} strokeWidth={1.7} />
-              </a>
-              <a href="tel:+918053846002" className="btn-outline-brand inline-flex items-center gap-2" data-testid="apostille-call-rajiv">
-                <Phone size={16} /> Call Rajiv Malik · +91 80538 46002
               </a>
             </div>
           </div>
@@ -124,8 +124,8 @@ export default function Apostille() {
               Start your apostille in minutes.
             </h2>
             <p className="text-white/75 mt-5 leading-relaxed">
-              Tell us what you need apostilled. Our coordinator (Rajiv Malik · +91 80538 46002) will call within an hour
-              with a fixed quote and pickup window.
+              Tell us what you need apostilled. Our coordinator will reach out within an hour with a fixed quote
+              and the next steps. Apostille is processed only via this form — no other channel.
             </p>
             <div className="mt-7 grid grid-cols-2 gap-4">
               <Stat label="Working hours" value="24h" />
@@ -196,7 +196,7 @@ function ApostilleForm() {
         </Field>
         <Field label="No. of documents"><input required type="number" min={1} max={50} className="input-soft" value={form.num_documents} onChange={(e) => setForm({ ...form, num_documents: e.target.value })} data-testid="apostille-num" /></Field>
         <Field label="Target country" span={2}><input className="input-soft" value={form.target_country} onChange={(e) => setForm({ ...form, target_country: e.target.value })} data-testid="apostille-country" placeholder="e.g. South Korea" /></Field>
-        <Field label="Notes" span={2}><textarea className="input-soft min-h-[90px]" value={form.notes} onChange={(e) => setForm({ ...form, notes: e.target.value })} data-testid="apostille-notes" placeholder="Pickup address, urgency etc." /></Field>
+        <Field label="Notes" span={2}><textarea className="input-soft min-h-[90px]" value={form.notes} onChange={(e) => setForm({ ...form, notes: e.target.value })} data-testid="apostille-notes" placeholder="Urgency, special requirements, target country deadline etc." /></Field>
       </div>
       <button type="submit" disabled={loading} className="btn-brand mt-6 w-full inline-flex items-center justify-center gap-2 disabled:opacity-60" data-testid="apostille-submit">
         {loading ? "Submitting…" : (<>Place order <ArrowRight size={18} strokeWidth={1.7} /></>)}

@@ -469,8 +469,7 @@ async def create_apostille(body: ApostilleCreate):
     asyncio.create_task(send_email_async(
         body.email,
         f"Veritas Sphere · Apostille Request ({order.id})",
-        render_email("Apostille request received", "Our apostille desk will contact you to schedule document pickup and confirm pricing within 24 hours.", rows_candidate,
-                     "Direct apostille line: Rajiv Malik · +91 80538 46002"),
+        render_email("Apostille request received", "Our apostille desk will contact you to confirm pricing and the next steps within 24 hours. The entire process is handled online — no document pickup required.", rows_candidate),
     ))
     asyncio.create_task(send_email_async(
         ADMIN_EMAIL,

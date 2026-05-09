@@ -71,20 +71,10 @@ export default function Scholarships() {
                 <div className="flex items-center gap-2 text-brand-ink">
                   <Filter size={16} strokeWidth={1.6} /> <span className="font-display text-lg font-bold">Filters</span>
                 </div>
-                <form onSubmit={onSearchSubmit} className="mt-4">
-                  <Label>Search</Label>
-                  <div className="relative">
-                    <Search size={16} className="absolute left-3.5 top-3.5 text-brand-muted" />
-                    <input
-                      data-testid="scholarships-search"
-                      value={filters.q}
-                      onChange={(e) => setFilters({ ...filters, q: e.target.value })}
-                      placeholder="Korea, MEXT…"
-                      className="input-soft pl-10"
-                    />
-                  </div>
+                <form onSubmit={onSearchSubmit} className="hidden">
+                  <input value={filters.q} readOnly />
                 </form>
-                <div className="mt-5">
+                <div className="mt-1">
                   <Label>Degree Level</Label>
                   <div className="flex flex-wrap gap-2 mt-2">
                     {LEVELS.map((l) => (
@@ -133,7 +123,7 @@ export default function Scholarships() {
                 <>
                   {!isSearching && featured.length > 0 && (
                     <div>
-                      <SectionTitle eyebrow="Featured" title="Most-applied scholarships." subtitle="Use the search or filters on the left to discover 20+ more curated scholarships across countries." />
+                      <SectionTitle eyebrow="Featured" title="Most-applied scholarships." subtitle="Use the filters on the left to discover 20+ more curated scholarships across countries." />
                       <div className="grid md:grid-cols-2 gap-5 mt-8">
                         {featured.map((s) => (
                           <ScholarshipCard key={s.id} item={s} onApply={() => { setSelected(s); setApplyOpen(true); }} />

@@ -9,7 +9,7 @@ const REASONS = [
   { icon: Globe, title: "30+ Countries", desc: "Active scholarship coverage across Asia, Europe, North America and Oceania." },
   { icon: Users, title: "Expert Mentors", desc: "Insider knowledge from alumni who navigated the same journey." },
   { icon: Sparkles, title: "Personalised Approach", desc: "Tailored study-plan and statement writing — never templated." },
-  { icon: ShieldCheck, title: "Unlimited Revisions", desc: "We refine until your application story sings." },
+  { icon: ShieldCheck, title: "Personalised Revisions", desc: "Targeted revisions until your application reads sharp and authentic." },
   { icon: Clock, title: "24/7 Support", desc: "Real human help on WhatsApp, email or call — at every step." },
 ];
 
@@ -39,7 +39,7 @@ export default function Home() {
               documents and walk every step until you land a fully-funded offer.
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
-              <Link to="/services" className="btn-brand inline-flex items-center gap-2" data-testid="hero-book-cta">
+              <Link to="/contact" className="btn-brand inline-flex items-center gap-2" data-testid="hero-book-cta">
                 Book Free Consultation <ArrowRight size={18} strokeWidth={1.7} />
               </Link>
               <Link to="/scholarships" className="btn-outline-brand inline-flex items-center gap-2" data-testid="hero-browse-cta">
@@ -143,11 +143,11 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-wrap gap-4 lg:justify-end">
-            <Link to="/services" className="bg-white text-brand hover:bg-brand-cream rounded-full px-8 py-4 font-semibold transition-all hover:-translate-y-0.5" data-testid="cta-book">
+            <Link to="/contact" className="bg-white text-brand hover:bg-brand-cream rounded-full px-8 py-4 font-semibold transition-all hover:-translate-y-0.5" data-testid="cta-book">
               Book Free Consultation
             </Link>
-            <Link to="/contact" className="bg-brand-dark text-white hover:bg-brand-deeper rounded-full px-8 py-4 font-semibold transition-all hover:-translate-y-0.5 inline-flex items-center gap-2" data-testid="cta-contact">
-              <MessageCircle size={18} strokeWidth={1.6} /> Contact Us
+            <Link to="/services" className="bg-brand-dark text-white hover:bg-brand-deeper rounded-full px-8 py-4 font-semibold transition-all hover:-translate-y-0.5 inline-flex items-center gap-2" data-testid="cta-services">
+              <Sparkles size={18} strokeWidth={1.6} /> View packages
             </Link>
           </div>
         </div>

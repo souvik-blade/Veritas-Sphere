@@ -4,39 +4,11 @@ import SectionTitle from "@/components/SectionTitle";
 
 const NOTICES = [
   {
-    date: "2026-04-25",
-    type: "Scholarship",
-    icon: GraduationCap,
-    title: "GKS 2026 (University Track) — applications now open",
-    body: "Korean Government Scholarship University Track is accepting applications for Fall 2026. Book a guidance slot to align your Study Plan with university faculty fit.",
-  },
-  {
     date: "2026-04-15",
     type: "Internship",
     icon: Briefcase,
-    title: "Veritas Sphere Summer Mentor Internship",
-    body: "We are accepting 4 mentor interns from June 2026 — work alongside our scholarship advisors. Apply via Contact page with subject 'Mentor Internship'.",
-  },
-  {
-    date: "2026-04-10",
-    type: "Activity",
-    icon: Megaphone,
-    title: "Free Webinar: How to write a winning Study Plan",
-    body: "Live session covering the SP framework that worked for our GKS, MEXT and CSC alumni. Replay link sent to all registered users.",
-  },
-  {
-    date: "2026-04-02",
-    type: "Scholarship",
-    icon: GraduationCap,
-    title: "MEXT 2027 — embassy track timeline released",
-    body: "MEXT embassy recommendation timelines are out. We've updated our checklists and study plan templates accordingly.",
-  },
-  {
-    date: "2026-03-22",
-    type: "Activity",
-    icon: Megaphone,
-    title: "Apostille pickup now available across NCR",
-    body: "Door-step apostille pickup expanded to Delhi, Gurugram, Noida, Faridabad and Ghaziabad with same-day acknowledgement.",
+    title: "Internship Opportunity — Applications Open",
+    body: "Veritas Sphere is opening internship slots for the upcoming cohort. Stipend-based opportunities for college students passionate about scholarships and study-abroad guidance. Apply via the Contact page with subject 'Internship'.",
   },
 ];
 

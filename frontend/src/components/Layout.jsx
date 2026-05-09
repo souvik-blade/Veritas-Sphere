@@ -65,7 +65,7 @@ function Navbar() {
           >
             <MessageCircle size={16} strokeWidth={1.5} /> Quick chat
           </a>
-          <Link to="/services" className="btn-brand text-[13px] py-3 px-6" data-testid="nav-cta-book">
+          <Link to="/contact" className="btn-brand text-[13px] py-3 px-6" data-testid="nav-cta-book">
             Book Free Consultation
           </Link>
         </div>
@@ -96,7 +96,7 @@ function Navbar() {
                 {n.label}
               </NavLink>
             ))}
-            <Link to="/services" className="btn-brand text-center mt-2" data-testid="nav-mobile-cta">
+            <Link to="/contact" className="btn-brand text-center mt-2" data-testid="nav-mobile-cta">
               Book Free Consultation
             </Link>
           </div>
@@ -154,7 +154,7 @@ function Footer() {
         <div>
           <div className="text-white/50 text-[11px] uppercase tracking-[0.18em] mb-4">Contact</div>
           <ul className="space-y-3 text-sm text-white/85">
-            <li className="flex items-start gap-2"><Phone size={15} className="mt-0.5" strokeWidth={1.5} /> +91 80074 86195 / +91 87001 61753</li>
+            <li className="flex items-start gap-2"><Phone size={15} className="mt-0.5" strokeWidth={1.5} /> +91 80074 86195<br/>+91 88604 11049<br/>+91 80538 46002</li>
             <li className="flex items-start gap-2"><Mail size={15} className="mt-0.5" strokeWidth={1.5} /> veritassphere26@gmail.com</li>
             <li className="flex items-start gap-2"><MapPin size={15} className="mt-0.5" strokeWidth={1.5} /> Mon–Fri · 10am – 6pm</li>
             <li className="text-white/60 text-xs mt-3">Udyam Reg No.<br/>UDYAM-DL-05-0082130</li>
