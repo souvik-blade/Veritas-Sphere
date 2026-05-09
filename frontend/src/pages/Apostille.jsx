@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "sonner";
-import { ArrowRight, FileCheck2, Languages, ShieldCheck, Stamp, Truck, Phone, Clock } from "lucide-react";
+import { ArrowRight, FileCheck2, Languages, ShieldCheck, Stamp, Truck, Phone, Clock, Image as ImageIcon } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
 import { api } from "@/lib/config";
 
@@ -9,6 +9,7 @@ const STEPS = [
   { icon: Languages, title: "Translation (if needed)", desc: "Certified translators convert documents into the required language for international acceptance." },
   { icon: ShieldCheck, title: "Authentication", desc: "Documents are verified by the issuing authority — university, government office or notary." },
   { icon: Stamp, title: "Apostille Certification", desc: "Official stamp/seal attached by the designated MEA / state authority — confirming international validity." },
+  { icon: ImageIcon, title: "Verification Preview", desc: "Before final delivery we send you a clear image of the completed apostilled documents so you can verify everything is in order." },
   { icon: Truck, title: "Online Delivery", desc: "Apostilled documents are delivered to you online with digital confirmation and tracking." },
 ];
 
@@ -30,11 +31,14 @@ export default function Apostille() {
               the Hague Convention. We handle the entire process online — submission, translation, authentication and digital delivery.
             </p>
             <div className="mt-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand/10 text-brand text-[12px] font-semibold">
-              <ShieldCheck size={14} strokeWidth={2} /> Apostille is processed only via the form below — no other channel.
+              <ShieldCheck size={14} strokeWidth={2} /> Orders are accepted only via the form below — calls are for queries only.
             </div>
             <div className="mt-7 flex flex-wrap gap-4">
               <a href="#order" className="btn-brand inline-flex items-center gap-2" data-testid="apostille-cta-order">
                 Start an apostille order <ArrowRight size={18} strokeWidth={1.7} />
+              </a>
+              <a href="tel:+918053846002" className="btn-outline-brand inline-flex items-center gap-2" data-testid="apostille-contact">
+                <Phone size={16} /> Apostille queries · +91 80538 46002
               </a>
             </div>
           </div>
@@ -57,7 +61,8 @@ export default function Apostille() {
                   </div>
                   <div>
                     <div className="text-white/60 text-xs uppercase tracking-[0.16em]">Turnaround</div>
-                    <div className="font-display text-xl font-bold mt-1">5–6 days</div>
+                    <div className="font-display text-xl font-bold mt-1">3–5 days*</div>
+                    <div className="text-[10px] text-white/60 mt-0.5">*excluding holidays</div>
                   </div>
                 </div>
               </div>
@@ -125,12 +130,13 @@ export default function Apostille() {
             </h2>
             <p className="text-white/75 mt-5 leading-relaxed">
               Tell us what you need apostilled. Our coordinator will reach out within an hour with a fixed quote
-              and the next steps. Apostille is processed only via this form — no other channel.
+              and the next steps. Orders are accepted <strong className="text-white">only through this form</strong> — for queries call +91 80538 46002.
             </p>
             <div className="mt-7 grid grid-cols-2 gap-4">
               <Stat label="Working hours" value="24h" />
-              <Stat label="Turnaround" value="5–6 days" />
+              <Stat label="Turnaround" value="3–5 days*" />
             </div>
+            <p className="text-white/55 text-xs mt-2">*excluding holidays</p>
           </div>
           <div className="lg:col-span-7">
             <ApostilleForm />
