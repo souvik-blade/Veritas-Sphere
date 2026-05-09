@@ -13,23 +13,6 @@ const REASONS = [
   { icon: Clock, title: "24/7 Support", desc: "Real human help on WhatsApp, email or call — at every step." },
 ];
 
-const ALUMNI = [
-  {
-    name: "Aarav S.",
-    program: "Korean Government Scholarship — MS, Seoul National University",
-    quote:
-      "Veritas Sphere rebuilt my Study Plan from scratch in 6 days. I went from an unfocused draft to a fully-funded GKS offer.",
-    flag: "🇰🇷",
-  },
-  {
-    name: "Priya M.",
-    program: "MEXT Scholarship — Research Student, University of Tokyo",
-    quote:
-      "Their personalised mentorship was unlike anything I'd seen before — every revision moved the needle.",
-    flag: "🇯🇵",
-  },
-];
-
 const STEPS = [
   { icon: GraduationCap, title: "Free Consultation", desc: "Tell us your dream — we map a personalised scholarship roadmap." },
   { icon: FileText, title: "Documents & Drafting", desc: "We craft your PS, SP and supporting documents with revisions." },
@@ -76,7 +59,7 @@ export default function Home() {
               <div className="relative rounded-[2rem] bg-brand p-8 text-white shadow-[0_30px_80px_-30px_rgba(236,92,83,0.6)]">
                 <div className="absolute inset-0 grain rounded-[2rem] opacity-30" />
                 <div className="relative">
-                  <img src={LOGO_URL} alt="Veritas Sphere" className="w-24 h-24 rounded-2xl object-cover ring-4 ring-white/30" />
+                  <img src={LOGO_URL} alt="Veritas Sphere" className="w-28 h-28 rounded-2xl object-contain bg-white p-2 ring-4 ring-white/30" />
                   <div className="mt-6 font-display text-3xl font-extrabold leading-tight">
                     “Truth-led guidance for an entire sphere of opportunity.”
                   </div>
@@ -140,26 +123,6 @@ export default function Home() {
                 </div>
                 <h3 className="font-display text-lg font-bold mt-5 text-brand-ink">{s.title}</h3>
                 <p className="text-brand-muted text-sm mt-2 leading-relaxed">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Alumni stories */}
-      <section className="section bg-brand-cream" data-testid="home-alumni">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <SectionTitle eyebrow="Alumni Stories" title="Real students. Real funded offers." />
-          <div className="grid md:grid-cols-2 gap-6 mt-12">
-            {ALUMNI.map((a, i) => (
-              <div key={a.name} className="card-soft p-8 relative overflow-hidden" data-testid={`alumni-${i}`}>
-                <div className="absolute -top-10 -right-10 text-9xl opacity-10 font-display text-brand">“</div>
-                <div className="text-5xl">{a.flag}</div>
-                <p className="mt-5 text-brand-ink text-lg leading-relaxed font-display">“{a.quote}”</p>
-                <div className="mt-6 pt-5 border-t border-brand-line">
-                  <div className="font-bold text-brand-ink">{a.name}</div>
-                  <div className="text-sm text-brand-muted">{a.program}</div>
-                </div>
               </div>
             ))}
           </div>

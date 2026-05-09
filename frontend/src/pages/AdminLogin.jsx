@@ -31,7 +31,7 @@ export default function AdminLogin() {
         <div className="absolute inset-0 grain opacity-25" />
         <div className="relative h-full flex flex-col justify-between p-12">
           <div className="flex items-center gap-3">
-            <img src={LOGO_URL} alt="Veritas" className="w-12 h-12 rounded-xl ring-2 ring-white/40 object-cover" />
+            <img src={LOGO_URL} alt="Veritas" className="w-14 h-14 rounded-xl object-contain bg-white p-1.5 ring-2 ring-white/40" />
             <div className="font-display font-extrabold text-xl">Veritas Sphere</div>
           </div>
           <div>

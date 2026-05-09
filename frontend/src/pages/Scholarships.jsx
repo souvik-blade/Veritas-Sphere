@@ -40,7 +40,7 @@ export default function Scholarships() {
   };
 
   const featured = useMemo(() => data.items.filter((i) => i.featured), [data.items]);
-  const others = useMemo(() => data.items.filter((i) => !i.featured), [data.items]);
+  const isSearching = (filters.q && filters.q.trim().length > 0) || filters.level !== "All" || filters.country !== "All";
 
   return (
     <>
@@ -131,9 +131,9 @@ export default function Scholarships() {
                 <div className="card-soft p-10 text-center text-brand-muted">Loading scholarships…</div>
               ) : (
                 <>
-                  {featured.length > 0 && (
-                    <div className="mb-10">
-                      <SectionTitle eyebrow="Featured" title="Most-applied scholarships." />
+                  {!isSearching && featured.length > 0 && (
+                    <div>
+                      <SectionTitle eyebrow="Featured" title="Most-applied scholarships." subtitle="Use the search or filters on the left to discover 20+ more curated scholarships across countries." />
                       <div className="grid md:grid-cols-2 gap-5 mt-8">
                         {featured.map((s) => (
                           <ScholarshipCard key={s.id} item={s} onApply={() => { setSelected(s); setApplyOpen(true); }} />
@@ -141,12 +141,21 @@ export default function Scholarships() {
                       </div>
                     </div>
                   )}
-                  <SectionTitle eyebrow={others.length ? "More opportunities" : "Results"} title={others.length ? "Curated for serious applicants." : "No scholarships match your filters yet."} />
-                  <div className="grid md:grid-cols-2 gap-5 mt-8">
-                    {others.map((s) => (
-                      <ScholarshipCard key={s.id} item={s} onApply={() => { setSelected(s); setApplyOpen(true); }} />
-                    ))}
-                  </div>
+
+                  {isSearching && (
+                    <div>
+                      <SectionTitle
+                        eyebrow={`${data.items.length} result${data.items.length === 1 ? "" : "s"}`}
+                        title={data.items.length ? "Curated scholarships matching your search." : "No scholarships match your filters."}
+                        subtitle={data.items.length ? "Browse the matches below or refine your filters." : "Try clearing a filter or searching another country."}
+                      />
+                      <div className="grid md:grid-cols-2 gap-5 mt-8">
+                        {data.items.map((s) => (
+                          <ScholarshipCard key={s.id} item={s} onApply={() => { setSelected(s); setApplyOpen(true); }} />
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </>
               )}
             </div>

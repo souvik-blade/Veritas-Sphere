@@ -34,7 +34,7 @@ export default function About() {
             <div className="rounded-3xl bg-brand p-8 text-white relative overflow-hidden">
               <div className="absolute inset-0 grain opacity-25" />
               <div className="relative">
-                <img src={LOGO_URL} alt="Veritas Sphere" className="w-20 h-20 rounded-2xl ring-4 ring-white/30 object-cover" />
+                <img src={LOGO_URL} alt="Veritas Sphere" className="w-24 h-24 rounded-2xl object-contain bg-white p-2 ring-4 ring-white/30" />
                 <div className="font-display text-3xl font-extrabold mt-6 leading-tight">
                   An entire sphere of opportunity — guided by truth.
                 </div>
