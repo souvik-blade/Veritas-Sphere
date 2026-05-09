@@ -128,8 +128,8 @@ export default function Apostille() {
               with a fixed quote and pickup window.
             </p>
             <div className="mt-7 grid grid-cols-2 gap-4">
-              <Stat label="Per-doc estimate" value="₹1,500*" />
               <Stat label="Working hours" value="24h" />
+              <Stat label="Turnaround" value="5–6 days" />
             </div>
           </div>
           <div className="lg:col-span-7">
@@ -204,7 +204,7 @@ function ApostilleForm() {
       {confirmation && (
         <div className="mt-6 rounded-2xl bg-brand/10 border border-brand/20 p-5 text-brand-ink" data-testid="apostille-confirmation">
           <div className="font-semibold">Order received</div>
-          <div className="text-sm mt-1">Reference: <span className="font-mono">{confirmation.id}</span> — estimated ₹{confirmation.estimated_price}.</div>
+          <div className="text-sm mt-1">Reference: <span className="font-mono">{confirmation.id}</span> — our team will call you within an hour with a fixed quote.</div>
         </div>
       )}
     </form>

@@ -453,26 +453,29 @@ async def create_apostille(body: ApostilleCreate):
     )
     await db.apostille_orders.insert_one(order.model_dump())
 
-    rows = [
+    rows_candidate = [
         ("Order ID", order.id),
         ("Document Type", body.document_type),
         ("Number of Documents", str(body.num_documents)),
         ("Target Country", body.target_country or "—"),
-        ("Estimated Price", f"₹{price}"),
         ("Candidate", body.candidate_name),
         ("Mobile", body.mobile),
         ("Email", body.email),
     ]
+    rows_admin = rows_candidate + [
+        ("Estimated Price", f"₹{price}"),
+        ("Notes", body.notes or "—"),
+    ]
     asyncio.create_task(send_email_async(
         body.email,
         f"Veritas Sphere · Apostille Request ({order.id})",
-        render_email("Apostille request received", "Our apostille desk will contact you to schedule document pickup and confirm pricing within 24 hours.", rows,
+        render_email("Apostille request received", "Our apostille desk will contact you to schedule document pickup and confirm pricing within 24 hours.", rows_candidate,
                      "Direct apostille line: Rajiv Malik · +91 80538 46002"),
     ))
     asyncio.create_task(send_email_async(
         ADMIN_EMAIL,
         f"[New Apostille Order] {body.candidate_name} — {body.num_documents} doc(s)",
-        render_email("New apostille order", "A new apostille order needs processing.", rows + [("Notes", body.notes or "—")]),
+        render_email("New apostille order", "A new apostille order needs processing.", rows_admin),
     ))
     return order
 
