@@ -74,7 +74,7 @@ export default function About() {
       {/* Vision / Mission / Promise — expandable */}
       <section className="section bg-white" data-testid="about-vmp">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <SectionTitle eyebrow="What we stand for" title="Vision, Mission & Promise." subtitle="Tap any card to read the detailed statement." align="center" className="mx-auto" />
+          <SectionTitle eyebrow="What we stand for" title="Vision, Mission & Promise." align="center" className="mx-auto" />
           <div className="grid lg:grid-cols-3 gap-6 mt-12">
             {PILLARS.map((p, i) => {
               const open = openIdx === i;
