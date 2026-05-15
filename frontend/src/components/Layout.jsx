@@ -33,8 +33,12 @@ function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 lg:px-10 h-[72px] flex items-center justify-between">
-        <Link to="/" className="flex items-center" data-testid="nav-logo">
+        <Link to="/" className="flex items-center gap-3" data-testid="nav-logo">
           <img src={LOGO_URL} alt="Veritas Sphere" className="h-12 w-auto rounded-lg object-contain bg-white p-1 ring-1 ring-brand-line" />
+          <div className="leading-tight hidden sm:block">
+            <div className="font-display font-extrabold text-[17px] text-brand-ink tracking-tight">Veritas Sphere</div>
+            <div className="text-[10px] uppercase tracking-[0.14em] text-brand-muted mt-0.5">The trusted hub for scholarship clarity</div>
+          </div>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8">
@@ -65,7 +69,7 @@ function Navbar() {
           >
             <MessageCircle size={16} strokeWidth={1.5} /> Quick chat
           </a>
-          <Link to="/contact" className="btn-brand text-[13px] py-3 px-6" data-testid="nav-cta-book">
+          <Link to="/consultation" className="btn-brand text-[13px] py-3 px-6" data-testid="nav-cta-book">
             Book Free Consultation
           </Link>
         </div>
@@ -96,7 +100,7 @@ function Navbar() {
                 {n.label}
               </NavLink>
             ))}
-            <Link to="/contact" className="btn-brand text-center mt-2" data-testid="nav-mobile-cta">
+            <Link to="/consultation" className="btn-brand text-center mt-2" data-testid="nav-mobile-cta">
               Book Free Consultation
             </Link>
           </div>

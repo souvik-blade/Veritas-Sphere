@@ -87,7 +87,7 @@ const PROCESS_STEPS = [
   { title: "Discovery Call", desc: "We understand your background, goals and target programmes." },
   { title: "Story-Mining", desc: "Deep-dive interview to surface unique experiences worth telling." },
   { title: "Draft v1", desc: "First personalised draft delivered with structure aligned to scholarship." },
-  { title: "Iterate & Revise", desc: "Unlimited language edits and 2 major revisions to perfect tone." },
+  { title: "Iterate & Revise", desc: "Comprehensive language refinement with endless phrasing polish and precise fine-tuning, plus 2 major revisions to perfect tone." },
   { title: "Finalise & Submit", desc: "Final proofread, format check and submission walkthrough." },
 ];
 
@@ -106,7 +106,7 @@ export default function Services() {
             </h1>
             <p className="mt-5 text-brand-muted text-lg leading-relaxed">
               Choose a focused service or grab a curated package — each plan includes a dedicated mentor, personalised
-              writing and unlimited language edits.
+              writing and comprehensive language refinement.
             </p>
           </div>
         </div>

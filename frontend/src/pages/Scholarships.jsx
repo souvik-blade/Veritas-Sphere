@@ -161,6 +161,7 @@ export default function Scholarships() {
 }
 
 function ScholarshipCard({ item, onApply }) {
+  const deadlines = item.deadlines || (item.deadline ? [{ levels: item.levels, date: item.deadline }] : []);
   return (
     <div className="card-soft p-6 flex flex-col" data-testid={`scholarship-${item.id}`}>
       <div className="flex items-start justify-between gap-4">
@@ -176,11 +177,25 @@ function ScholarshipCard({ item, onApply }) {
           </span>
         ))}
       </div>
-      <div className="mt-5 pt-5 border-t border-brand-line flex items-center justify-between">
-        <div className="text-xs text-brand-muted">Deadline · {item.deadline}</div>
+      <div className="mt-5 pt-5 border-t border-brand-line space-y-2">
+        <div className="text-[11px] uppercase tracking-[0.16em] text-brand-muted font-semibold">Deadlines</div>
+        {deadlines.map((d, i) => (
+          <div key={i} className="flex items-start gap-2 text-[13px] text-brand-ink/85">
+            <span className="font-mono text-brand-muted shrink-0">{(d.levels || []).join(" / ") || "—"}</span>
+            <span className="text-brand-ink/40">·</span>
+            <span className="font-semibold text-brand-ink">{d.date}</span>
+          </div>
+        ))}
+      </div>
+      <div className="mt-5 pt-5 border-t border-brand-line flex items-center justify-between gap-3">
+        {item.official_site ? (
+          <a href={item.official_site} target="_blank" rel="noreferrer" className="text-[12px] text-brand-muted hover:text-brand truncate" data-testid={`scholarship-site-${item.id}`}>
+            Official site ↗
+          </a>
+        ) : <span />}
         <button
           onClick={onApply}
-          className="text-brand font-semibold inline-flex items-center gap-1.5 hover:text-brand-dark"
+          className="text-brand font-semibold inline-flex items-center gap-1.5 hover:text-brand-dark whitespace-nowrap"
           data-testid={`scholarship-apply-${item.id}`}
         >
           Apply now <ArrowRight size={15} strokeWidth={2} />

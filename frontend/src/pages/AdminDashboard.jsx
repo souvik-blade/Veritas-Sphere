@@ -16,7 +16,7 @@ const STATUSES = ["pending", "in_progress", "completed", "cancelled"];
 export default function AdminDashboard() {
   const navigate = useNavigate();
   const [admin, setAdmin] = useState(null);
-  const [stats, setStats] = useState({ bookings: 0, applications: 0, apostille: 0, messages: 0 });
+  const [stats, setStats] = useState({ bookings: 0, consultations: 0, applications: 0, apostille: 0, messages: 0 });
   const [tab, setTab] = useState("bookings");
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -232,6 +232,8 @@ function tableColumns(tab) {
   switch (tab) {
     case "bookings":
       return ["id", "candidate_name", "package", "email", "mobile", "created_at"];
+    case "consultations":
+      return ["id", "candidate_name", "target_country", "target_level", "preferred_date", "email", "mobile", "created_at"];
     case "applications":
       return ["id", "candidate_name", "degree_plan", "major", "target_country", "email", "created_at"];
     case "apostille":

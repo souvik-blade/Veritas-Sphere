@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "sonner";
-import { ArrowRight, FileCheck2, Languages, ShieldCheck, Stamp, Truck, Phone, Clock, Image as ImageIcon } from "lucide-react";
+import { ArrowRight, FileCheck2, Languages, ShieldCheck, Stamp, Truck, Phone, Clock, Image as ImageIcon, MessageCircle } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
 import { api } from "@/lib/config";
 
@@ -37,8 +37,8 @@ export default function Apostille() {
               <a href="#order" className="btn-brand inline-flex items-center gap-2" data-testid="apostille-cta-order">
                 Start an apostille order <ArrowRight size={18} strokeWidth={1.7} />
               </a>
-              <a href="tel:+918053846002" className="btn-outline-brand inline-flex items-center gap-2" data-testid="apostille-contact">
-                <Phone size={16} /> Apostille queries · +91 80538 46002
+              <a href="https://wa.me/918053846002" target="_blank" rel="noreferrer" className="btn-outline-brand inline-flex items-center gap-2" data-testid="apostille-contact">
+                <MessageCircle size={16} /> Apostille queries · WhatsApp +91 80538 46002
               </a>
             </div>
           </div>
