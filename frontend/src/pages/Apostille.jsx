@@ -130,7 +130,10 @@ export default function Apostille() {
             </h2>
             <p className="text-white/75 mt-5 leading-relaxed">
               Tell us what you need apostilled. Our coordinator will reach out within an hour with a fixed quote
-              and the next steps. Orders are accepted <strong className="text-white">only through this form</strong> — for queries call +91 80538 46002.
+              and the next steps. Orders are accepted <strong className="text-white">only through this form</strong> — for queries{" "}
+              <a href="https://wa.me/918053846002" target="_blank" rel="noreferrer" className="text-white underline underline-offset-2 hover:text-brand-cream font-semibold" data-testid="apostille-form-whatsapp">
+                WhatsApp +91 80538 46002
+              </a>.
             </p>
             <div className="mt-7 grid grid-cols-2 gap-4">
               <Stat label="Working hours" value="24h" />
