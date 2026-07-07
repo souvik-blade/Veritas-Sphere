@@ -33,22 +33,22 @@ function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 lg:px-10 h-[72px] flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3" data-testid="nav-logo">
-          <img src={LOGO_URL} alt="Veritas Sphere" className="h-12 w-auto rounded-lg object-contain bg-white p-1 ring-1 ring-brand-line" />
-          <div className="leading-tight hidden sm:block">
-            <div className="font-display font-extrabold text-[17px] text-brand-ink tracking-tight">Veritas Sphere</div>
+        <Link to="/" className="flex items-center gap-3 shrink-0" data-testid="nav-logo">
+          <img src={LOGO_URL} alt="Veritas Sphere" className="h-11 w-auto rounded-lg object-contain bg-white p-1 ring-1 ring-brand-line" />
+          <div className="leading-tight hidden xl:block">
+            <div className="font-display font-extrabold text-[16px] text-brand-ink tracking-tight">Veritas Sphere</div>
             <div className="text-[10px] uppercase tracking-[0.14em] text-brand-muted mt-0.5">The trusted hub for scholarship clarity</div>
           </div>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-7">
           {NAV.map((n) => (
             <NavLink
               key={n.to}
               to={n.to}
               data-testid={`nav-${n.label.toLowerCase()}`}
               className={({ isActive }) =>
-                `link-underline text-[14px] font-medium transition-colors ${
+                `link-underline text-[13.5px] font-medium transition-colors whitespace-nowrap ${
                   isActive ? "text-brand" : "text-brand-ink/80 hover:text-brand"
                 }`
               }
@@ -59,17 +59,8 @@ function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-3">
-          <a
-            href={`https://wa.me/${WHATSAPP_NUMBERS[0].number}`}
-            target="_blank"
-            rel="noreferrer"
-            className="text-[13px] inline-flex items-center gap-2 text-brand-ink/80 hover:text-brand"
-            data-testid="nav-whatsapp"
-          >
-            <MessageCircle size={16} strokeWidth={1.5} /> Quick chat
-          </a>
-          <Link to="/consultation" className="btn-brand text-[13px] py-3 px-6" data-testid="nav-cta-book">
+        <div className="hidden lg:flex items-center gap-3 shrink-0">
+          <Link to="/consultation" className="btn-brand text-[13px] py-2.5 px-5" data-testid="nav-cta-book">
             Book Free Consultation
           </Link>
         </div>
