@@ -16,7 +16,6 @@ class TestHealth:
         assert body.get("status") == "ok"
         assert body.get("service") == "Veritas Sphere"
 
-
 # ---------- scholarships ----------
 class TestScholarships:
     def test_list_all(self, api_client):

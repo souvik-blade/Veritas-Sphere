@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
-import { Menu, X, Phone, Mail, MapPin, MessageCircle, Instagram, Facebook, Linkedin } from "lucide-react";
-import { LOGO_URL, WHATSAPP_NUMBERS } from "@/lib/config";
+import { Menu, X, Phone, Mail, MapPin, Instagram, Facebook, Linkedin } from "lucide-react";
+import { LOGO_URL } from "@/lib/config";
 
 const NAV = [
   { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
   { to: "/scholarships", label: "Scholarships" },
   { to: "/apostille", label: "Apostille" },
+  { to: "/alumni", label: "Alumni" },
   { to: "/about", label: "About" },
   { to: "/notice", label: "Notice" },
   { to: "/contact", label: "Contact" },
+  { to: "/terms", label: "Terms & Conditions" },
 ];
 
 function Navbar() {
@@ -41,14 +43,14 @@ function Navbar() {
           </div>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-6 xl:gap-7">
+        <nav className="hidden lg:flex flex-1 items-center justify-evenly gap-2 mx-3 xl:mx-5">
           {NAV.map((n) => (
             <NavLink
               key={n.to}
               to={n.to}
               data-testid={`nav-${n.label.toLowerCase()}`}
               className={({ isActive }) =>
-                `link-underline text-[13.5px] font-medium transition-colors whitespace-nowrap ${
+                `link-underline text-[13px] font-medium transition-colors whitespace-nowrap ${
                   isActive ? "text-brand" : "text-brand-ink/80 hover:text-brand"
                 }`
               }
@@ -60,7 +62,7 @@ function Navbar() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3 shrink-0">
-          <Link to="/consultation" className="btn-brand text-[13px] py-2.5 px-5" data-testid="nav-cta-book">
+          <Link to="/consultation" className="btn-brand text-[11px] py-2 px-3" data-testid="nav-cta-book">
             Book Free Consultation
           </Link>
         </div>
@@ -149,10 +151,10 @@ function Footer() {
         <div>
           <div className="text-white/50 text-[11px] uppercase tracking-[0.18em] mb-4">Contact</div>
           <ul className="space-y-3 text-sm text-white/85">
-            <li className="flex items-start gap-2"><Phone size={15} className="mt-0.5" strokeWidth={1.5} /> +91 80074 86195<br/>+91 88604 11049<br/>+91 80538 46002</li>
+            <li className="flex items-start gap-2"><Phone size={15} className="mt-0.5" strokeWidth={1.5} /> +91 94661 45196</li>
             <li className="flex items-start gap-2"><Mail size={15} className="mt-0.5" strokeWidth={1.5} /> veritassphere26@gmail.com</li>
             <li className="flex items-start gap-2"><MapPin size={15} className="mt-0.5" strokeWidth={1.5} /> Mon–Fri · 10am – 6pm</li>
-            <li className="text-white/60 text-xs mt-3">Udyam Reg No.<br/>UDYAM-DL-05-0082130</li>
+            <li className="text-white/60 text-xs mt-3">Udyam Reg No.<br/>UDYAM-OD-05-0063562</li>
           </ul>
         </div>
       </div>
@@ -160,21 +162,6 @@ function Footer() {
         © {new Date().getFullYear()} Veritas Sphere — All Rights Reserved
       </div>
     </footer>
-  );
-}
-
-function FloatingWhatsApp() {
-  return (
-    <a
-      data-testid="floating-whatsapp"
-      href={`https://wa.me/${WHATSAPP_NUMBERS[0].number}`}
-      target="_blank"
-      rel="noreferrer"
-      className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-brand text-white grid place-items-center shadow-[0_12px_30px_-10px_rgba(236,92,83,0.7)] hover:bg-brand-dark transition-all hover:-translate-y-1"
-      aria-label="WhatsApp Quick Chat"
-    >
-      <MessageCircle size={22} strokeWidth={1.6} />
-    </a>
   );
 }
 
@@ -186,7 +173,6 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
-      <FloatingWhatsApp />
     </div>
   );
 }

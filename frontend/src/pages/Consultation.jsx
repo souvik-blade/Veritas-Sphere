@@ -96,6 +96,7 @@ export default function Consultation() {
           </div>
         </div>
       </section>
+      )}
     </>
   );
 }

@@ -10,7 +10,7 @@ const REASONS = [
   { icon: Users, title: "Expert Mentors", desc: "Insider knowledge from alumni who navigated the same journey." },
   { icon: Sparkles, title: "Personalised Approach", desc: "Tailored study-plan and statement writing — never templated." },
   { icon: ShieldCheck, title: "Personalised Revisions", desc: "Targeted revisions until your application reads sharp and authentic." },
-  { icon: Clock, title: "24/7 Support", desc: "Real human help on WhatsApp, email or call — at every step." },
+  { icon: Clock, title: "Weekdays Support", desc: "10 AM – 6 PM (Mon–Fri)" },
 ];
 
 const STEPS = [
@@ -29,7 +29,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-20 pb-24 lg:pt-28 lg:pb-32 relative grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 fade-up">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-brand-ink text-[11px] uppercase tracking-[0.2em] font-semibold border border-brand-line">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand" /> Registered at Udyam · UDYAM-DL-05-0082130
+              <span className="w-1.5 h-1.5 rounded-full bg-brand" /> Registered at Udyam · UDYAM-OD-05-0063562
             </div>
             <h1 className="font-display mt-6 text-4xl sm:text-5xl lg:text-[64px] leading-[1.02] font-black tracking-tighter text-brand-ink">
               Unlock Your Dream <span className="text-brand">International Scholarship</span>.
@@ -49,7 +49,7 @@ export default function Home() {
             <div className="mt-12 grid grid-cols-3 gap-4 max-w-lg">
               <Stat value="85%" label="Success rate" />
               <Stat value="30+" label="Countries" />
-              <Stat value="24/7" label="Support" />
+              <Stat value="Weekdays" label={<>Support<br /><span className="text-[10px]">10 AM – 6 PM (Mon–Fri)</span></>} />
             </div>
           </div>
 
@@ -152,6 +152,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      )}
     </>
   );
 }

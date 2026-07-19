@@ -11,13 +11,10 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-export const LOGO_URL =
-  "https://customer-assets.emergentagent.com/job_1e2fbffe-2a58-4393-95e1-1619caba1104/artifacts/n4whf5t2_veritas%20logo.jpeg";
+export const LOGO_URL = "/images/veritas-logo.jpg"
 
 export const WHATSAPP_NUMBERS = [
-  { label: "+91 80074 86195", number: "918007486195" },
-  { label: "+91 88604 11049", number: "918860411049" },
-  { label: "+91 80538 46002", number: "918053846002" },
+  { label: "+91 94661 45196", number: "919466145196" },
 ];
 
 export const PACKAGES = [

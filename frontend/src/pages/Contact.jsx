@@ -47,10 +47,10 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-10">
           {/* Left — info */}
           <aside className="lg:col-span-5 space-y-5">
-            <ContactInfoCard icon={Phone} title="Call us" lines={["+91 80074 86195", "+91 88604 11049", "+91 80538 46002"]} hrefs={["tel:+918007486195", "tel:+918860411049", "tel:+918053846002"]} testid="contact-phones" />
+            <ContactInfoCard icon={Phone} title="Call us" lines={["+91 94661 45196", "+91 94661 45196", "+91 94661 45196"]} hrefs={["tel:+919466145196", "tel:+919466145196", "tel:+919466145196"]} testid="contact-phones" />
             <ContactInfoCard icon={Mail} title="Email" lines={["veritassphere26@gmail.com"]} hrefs={["mailto:veritassphere26@gmail.com"]} testid="contact-email" />
             <ContactInfoCard icon={Clock} title="Office Hours" lines={["Mon – Fri", "10:00 am – 6:00 pm"]} testid="contact-hours" />
-            <ContactInfoCard icon={MapPin} title="Registered" lines={["Udyam · UDYAM-DL-05-0082130"]} testid="contact-udyam" />
+            <ContactInfoCard icon={MapPin} title="Registered" lines={["Udyam · UDYAM-OD-05-0063562"]} testid="contact-udyam" />
 
             <div className="rounded-3xl bg-brand text-white p-6 relative overflow-hidden" data-testid="contact-whatsapp">
               <div className="absolute inset-0 grain opacity-25" />
@@ -104,6 +104,7 @@ export default function Contact() {
           </div>
         </div>
       </section>
+      )}
     </>
   );
 }

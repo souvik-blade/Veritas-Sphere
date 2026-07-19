@@ -160,6 +160,14 @@ export default function Scholarships() {
   );
 }
 
+
+function formatDeadlineDate(date) {
+  return String(date || "")
+    .replace(/,?\s*\b20\d{2}\b/g, "")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
+
 function ScholarshipCard({ item, onApply }) {
   const deadlines = item.deadlines || (item.deadline ? [{ levels: item.levels, date: item.deadline }] : []);
   return (
@@ -183,7 +191,7 @@ function ScholarshipCard({ item, onApply }) {
           <div key={i} className="flex items-start gap-2 text-[13px] text-brand-ink/85">
             <span className="font-mono text-brand-muted shrink-0">{(d.levels || []).join(" / ") || "—"}</span>
             <span className="text-brand-ink/40">·</span>
-            <span className="font-semibold text-brand-ink">{d.date}</span>
+            <span className="font-semibold text-brand-ink">{formatDeadlineDate(d.date)}</span>
           </div>
         ))}
       </div>

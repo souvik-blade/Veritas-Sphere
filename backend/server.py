@@ -263,7 +263,7 @@ SCHOLARSHIPS = [
      "summary": "Full tuition, monthly stipend, airfare, Korean language training and settlement allowance."},
     {"id": "mext", "title": "MEXT Scholarship", "country": "Japan", "country_code": "JP", "flag": "🇯🇵",
      "levels": ["UG", "Masters", "PhD"], "featured": True,
-     "deadlines": [{"levels": ["UG", "Masters", "PhD"], "date": "5 June 2026"}],
+     "deadlines": [{"levels": ["UG", "Masters", "PhD"], "date": "May–June"}],
      "summary": "Japanese government scholarship covering tuition, living expenses, and travel."},
     {"id": "daad", "title": "DAAD Scholarship", "country": "Germany", "country_code": "DE", "flag": "🇩🇪",
      "levels": ["Masters", "PhD"], "featured": True,

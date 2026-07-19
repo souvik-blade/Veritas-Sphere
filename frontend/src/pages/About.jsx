@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Compass, Heart, Globe, Sparkles, Award, ShieldCheck, ChevronDown } from "lucide-react";
+import { Compass, Heart, Globe, Sparkles, Award, ShieldCheck, ChevronDown, GraduationCap } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
 import { Link } from "react-router-dom";
 import { LOGO_URL } from "@/lib/config";
@@ -67,6 +67,53 @@ export default function About() {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section bg-white" data-testid="about-founder">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-10 items-center">
+          <div className="lg:col-span-4">
+            <div className="w-full max-w-[400px] mx-auto aspect-[4/5] rounded-3xl bg-brand-cream border border-brand-line relative overflow-hidden">
+              <img src="/assets/images/rajiv-malik.jpg" alt="Rajiv Malik" className="absolute inset-0 !w-full !h-full !max-w-none object-cover object-center" />
+          <div className="hidden">
+                <div className="w-24 h-24 rounded-full bg-brand text-white grid place-items-center mx-auto font-display text-3xl font-black">RM</div>
+                <div className="mt-5 text-[11px] uppercase tracking-[0.18em] text-brand-muted">Founder photo space</div>
+              </div>
+            </div>
+          </div>
+          <div className="lg:col-span-8">
+            <SectionTitle eyebrow="Founder" title="Rajiv Malik" subtitle="Founder of Veritas Sphere" />
+            <p className="mt-6 text-brand-muted text-lg leading-relaxed max-w-3xl">
+              The vision behind Veritas Sphere was to create a mentorship platform that empowers students with clarity, honesty, and structured guidance for their study abroad journey. Built on the belief that every dream deserves the right support, the foundation of this initiative is to transform aspirations into achievements through dedicated mentorship.
+            </p>
+            <blockquote className="mt-6 max-w-3xl rounded-2xl bg-brand-cream border border-brand-line p-6 font-display text-xl leading-relaxed text-brand-ink">
+              “Education is the bridge between ambition and achievement — and true mentorship ensures no student has to cross it alone.”
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section className="section bg-brand-cream" data-testid="about-campus-ambassadors">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <SectionTitle eyebrow="Campus Ambassadors" title="Student voices representing Veritas Sphere." subtitle="Ambassadors connect applicants with practical, first-hand perspective from international university pathways." />
+          <div className="grid md:grid-cols-2 gap-6 mt-12">
+            {[
+              { name: "Ayushman Bal", image: "/assets/images/ayushman-bal.jpg", university: "Beijing Normal-Hong Kong Baptist University", designation: "Campus Ambassador" },
+              { name: "Srushti Mahatme", image: "/assets/images/srushti-mahatme.jpg", university: "Kyungdong University", designation: "Campus Ambassador" },
+            ].map((person) => (
+              <div key={person.name} className="card-soft p-7 flex flex-col gap-6 md:flex-row md:items-center">
+                <img src={person.image} alt={person.name} className="w-full aspect-square rounded-2xl object-cover object-center shrink-0 !max-w-none md:!w-40 md:!h-40" />
+              <div className="hidden">
+                  {person.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
+                </div>
+                <div>
+                  <div className="font-display text-xl font-bold text-brand-ink">{person.name}</div>
+                  <div className="text-brand-muted text-sm mt-1">{person.university}</div>
+                  <div className="inline-flex mt-3 px-3 py-1 rounded-full bg-brand/10 text-brand text-[11px] uppercase tracking-[0.14em] font-semibold">{person.designation}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -169,6 +216,8 @@ export default function About() {
           </div>
         </div>
       </section>
+    
+    
     </>
   );
 }

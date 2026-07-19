@@ -37,8 +37,8 @@ export default function Apostille() {
               <a href="#order" className="btn-brand inline-flex items-center gap-2" data-testid="apostille-cta-order">
                 Start an apostille order <ArrowRight size={18} strokeWidth={1.7} />
               </a>
-              <a href="https://wa.me/918053846002" target="_blank" rel="noreferrer" className="btn-outline-brand inline-flex items-center gap-2" data-testid="apostille-contact">
-                <MessageCircle size={16} /> Apostille queries · WhatsApp +91 80538 46002
+              <a href="https://wa.me/919466145196" target="_blank" rel="noreferrer" className="btn-outline-brand inline-flex items-center gap-2" data-testid="apostille-contact">
+                <MessageCircle size={16} /> Apostille queries · WhatsApp +91 94661 45196
               </a>
             </div>
           </div>
@@ -93,6 +93,34 @@ export default function Apostille() {
         </div>
       </section>
 
+
+
+      <section className="section bg-white" data-testid="apostille-samples">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <SectionTitle eyebrow="Sample Apostille Documents" title="Preview the kind of finished document evidence you receive." subtitle="These sample visuals show how apostille verification images are presented before final courier dispatch." />
+          <div className="grid md:grid-cols-3 gap-6 mt-12">
+            {["Academic Certificate", "Birth Certificate"].map((label) => (
+              <div key={label} className="card-soft p-5">
+                <div className="aspect-[4/5] rounded-2xl bg-white border border-brand-line p-5 shadow-inner">
+                  <div className="h-full rounded-xl border-2 border-brand-line bg-brand-cream/40 p-5 flex flex-col">
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-brand-muted">Sample Apostille</div>
+                    <div className="mt-4 h-3 bg-brand/25 rounded-full w-3/4" />
+                    <div className="mt-3 h-3 bg-brand/15 rounded-full w-full" />
+                    <div className="mt-3 h-3 bg-brand/15 rounded-full w-5/6" />
+                    <div className="mt-auto flex items-end justify-between">
+                      <div className="w-20 h-20 rounded-full border-4 border-brand/40 grid place-items-center text-brand font-display font-black">AP</div>
+                      <Stamp className="text-brand" size={42} strokeWidth={1.4} />
+                    </div>
+                  </div>
+                </div>
+                <div className="font-display text-lg font-bold text-brand-ink mt-5">{label}</div>
+                <p className="text-brand-muted text-sm mt-1">Representative sample image for apostille verification preview.</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Process timeline */}
       <section className="section bg-brand-cream" data-testid="apostille-process">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
@@ -131,8 +159,8 @@ export default function Apostille() {
             <p className="text-white/75 mt-5 leading-relaxed">
               Tell us what you need apostilled. Our coordinator will reach out within an hour with a fixed quote
               and the next steps. Orders are accepted <strong className="text-white">only through this form</strong> — for queries{" "}
-              <a href="https://wa.me/918053846002" target="_blank" rel="noreferrer" className="text-white underline underline-offset-2 hover:text-brand-cream font-semibold" data-testid="apostille-form-whatsapp">
-                WhatsApp +91 80538 46002
+              <a href="https://wa.me/919466145196" target="_blank" rel="noreferrer" className="text-white underline underline-offset-2 hover:text-brand-cream font-semibold" data-testid="apostille-form-whatsapp">
+                WhatsApp +91 94661 45196
               </a>.
             </p>
             <div className="mt-7 grid grid-cols-2 gap-4">
@@ -146,6 +174,7 @@ export default function Apostille() {
           </div>
         </div>
       </section>
+      )}
     </>
   );
 }
