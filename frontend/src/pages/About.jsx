@@ -100,7 +100,7 @@ export default function About() {
           <div className="grid md:grid-cols-2 gap-6 mt-12">
             {[
               { name: "Ayushman Bal", image: "/assets/images/ayushman-bal.jpg", university: "Beijing Normal-Hong Kong Baptist University", designation: "Campus Ambassador" },
-              { name: "Srushti Mahatme", image: "/assets/images/srushti-mahatme.jpg", university: "Kyungdong University", designation: "Campus Ambassador" },
+              { name: "Srushti Mahatme", image: "/images/about/srushti.jpg", university: "Kyungdong University", designation: "Campus Ambassador" },
             ].map((person) => (
               <div key={person.name} className="card-soft p-7 flex flex-col gap-6 md:flex-row md:items-center">
                 <img src={person.image} alt={person.name} className="w-full aspect-square rounded-2xl object-cover object-center shrink-0 !max-w-none md:!w-40 md:!h-40" />

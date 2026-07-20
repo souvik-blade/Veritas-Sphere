@@ -3,8 +3,31 @@ import { toast } from "sonner";
 import { Search, Filter, ArrowRight, Globe, Award, X } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
 import { api } from "@/lib/config";
+import { SCHOLARSHIPS } from "@/lib/scholarshipsData";
 
-const LEVELS = ["All", "UG", "Masters", "PhD", "Associate"];
+// const LEVELS = ["All", "UG", "Masters", "PhD", "Associate"];
+const LEVELS = ["All", "UG", "Masters", "PhD"];
+
+const getFilteredScholarships = (next) => {
+  let items = SCHOLARSHIPS;
+  if (next.level && next.level !== "All") {
+    items = items.filter((s) => s.levels.includes(next.level));
+  }
+  if (next.country && next.country !== "All") {
+    items = items.filter((s) => s.country.toLowerCase() === next.country.toLowerCase());
+  }
+  if (next.q) {
+    const qLower = next.q.toLowerCase().trim();
+    items = items.filter(
+      (s) =>
+        s.title.toLowerCase().includes(qLower) ||
+        s.country.toLowerCase().includes(qLower) ||
+        s.summary.toLowerCase().includes(qLower)
+    );
+  }
+  const countries = Array.from(new Set(SCHOLARSHIPS.map((s) => s.country))).sort();
+  return { items, countries };
+};
 
 export default function Scholarships() {
   const [data, setData] = useState({ items: [], countries: [] });
@@ -13,15 +36,11 @@ export default function Scholarships() {
   const [applyOpen, setApplyOpen] = useState(false);
   const [selected, setSelected] = useState(null);
 
-  const fetchData = async (next = filters) => {
+  const fetchData = (next = filters) => {
     setLoading(true);
     try {
-      const params = {};
-      if (next.level && next.level !== "All") params.level = next.level;
-      if (next.country && next.country !== "All") params.country = next.country;
-      if (next.q) params.q = next.q;
-      const { data } = await api.get("/scholarships", { params });
-      setData(data);
+      const res = getFilteredScholarships(next);
+      setData(res);
     } catch (e) {
       toast.error("Could not load scholarships");
     } finally {

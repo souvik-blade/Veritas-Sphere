@@ -56,8 +56,8 @@ export default function Apostille() {
                 </ul>
                 <div className="mt-7 pt-6 border-t border-white/10 grid grid-cols-2 gap-4">
                   <div>
-                    <div className="text-white/60 text-xs uppercase tracking-[0.16em]">Working hours</div>
-                    <div className="font-display text-xl font-bold mt-1">24h · Workdays</div>
+                    <div className="text-white/60 text-xs uppercase tracking-[0.16em]">Working Days</div>
+                    <div className="font-display text-xl font-bold mt-1">Mon - Sat</div>
                   </div>
                   <div>
                     <div className="text-white/60 text-xs uppercase tracking-[0.16em]">Turnaround</div>
@@ -95,7 +95,7 @@ export default function Apostille() {
 
 
 
-      <section className="section bg-white" data-testid="apostille-samples">
+      {/* <section className="section bg-white" data-testid="apostille-samples">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <SectionTitle eyebrow="Sample Apostille Documents" title="Preview the kind of finished document evidence you receive." subtitle="These sample visuals show how apostille verification images are presented before final courier dispatch." />
           <div className="grid md:grid-cols-3 gap-6 mt-12">
@@ -119,7 +119,7 @@ export default function Apostille() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Process timeline */}
       <section className="section bg-brand-cream" data-testid="apostille-process">
@@ -164,7 +164,7 @@ export default function Apostille() {
               </a>.
             </p>
             <div className="mt-7 grid grid-cols-2 gap-4">
-              <Stat label="Working hours" value="24h" />
+              <Stat label="Working Days" value="Mon - Sat" />
               <Stat label="Turnaround" value="3–5 days*" />
             </div>
             <p className="text-white/55 text-xs mt-2">*excluding holidays</p>
@@ -174,7 +174,6 @@ export default function Apostille() {
           </div>
         </div>
       </section>
-      )}
     </>
   );
 }

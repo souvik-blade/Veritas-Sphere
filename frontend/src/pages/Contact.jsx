@@ -47,7 +47,7 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-10">
           {/* Left — info */}
           <aside className="lg:col-span-5 space-y-5">
-            <ContactInfoCard icon={Phone} title="Call us" lines={["+91 94661 45196", "+91 94661 45196", "+91 94661 45196"]} hrefs={["tel:+919466145196", "tel:+919466145196", "tel:+919466145196"]} testid="contact-phones" />
+            <ContactInfoCard icon={Phone} title="Call us" lines={["+91 94661 45196"]} hrefs={["tel:+919466145196"]} testid="contact-phones" />
             <ContactInfoCard icon={Mail} title="Email" lines={["veritassphere26@gmail.com"]} hrefs={["mailto:veritassphere26@gmail.com"]} testid="contact-email" />
             <ContactInfoCard icon={Clock} title="Office Hours" lines={["Mon – Fri", "10:00 am – 6:00 pm"]} testid="contact-hours" />
             <ContactInfoCard icon={MapPin} title="Registered" lines={["Udyam · UDYAM-OD-05-0063562"]} testid="contact-udyam" />
@@ -104,7 +104,6 @@ export default function Contact() {
           </div>
         </div>
       </section>
-      )}
     </>
   );
 }
