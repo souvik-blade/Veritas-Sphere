@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "sonner";
 import Layout from "@/components/Layout";
 import Home from "@/pages/Home";
@@ -17,7 +17,7 @@ import Flipbook from "@/pages/Flipbook";
 
 export default function App() {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter>
       <Toaster position="top-right" richColors />
       <Routes>
         <Route element={<Layout />}>
@@ -35,6 +35,6 @@ export default function App() {
           <Route path="/flipbook" element={<Flipbook />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
