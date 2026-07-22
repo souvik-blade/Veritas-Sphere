@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "sonner";
 import { ArrowRight, Mail, Phone, MapPin, MessageCircle, Send, Clock } from "lucide-react";
-import { WHATSAPP_NUMBERS } from "@/lib/config";
+import { WHATSAPP_NUMBERS, saveToGoogleSheet } from "@/lib/config";
 import SectionTitle from "@/components/SectionTitle";
 
 export default function Contact() {
@@ -10,6 +10,15 @@ export default function Contact() {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    saveToGoogleSheet({
+      form_type: "Contact Inquiry",
+      full_name: form.full_name,
+      email: form.email,
+      phone: form.phone,
+      subject: form.subject,
+      message: form.message,
+    });
+
     const waNumber = WHATSAPP_NUMBERS[0]?.number || "919466145196";
     const text =
       `*General Contact Inquiry*\n\n` +

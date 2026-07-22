@@ -4,6 +4,22 @@ export const WHATSAPP_NUMBERS = [
   { label: "+91 94661 45196", number: "919466145196" },
 ];
 
+export const GOOGLE_SHEET_URL = process.env.REACT_APP_GOOGLE_SHEET_URL || "";
+
+export const saveToGoogleSheet = async (data) => {
+  if (!GOOGLE_SHEET_URL) return;
+  try {
+    await fetch(GOOGLE_SHEET_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain" },
+      body: JSON.stringify({ ...data, timestamp: new Date().toLocaleString("en-IN") }),
+    });
+  } catch (err) {
+    console.warn("Google Sheet submission note:", err);
+  }
+};
+
 export const PACKAGES = [
   { value: "PS_SOP", label: "Personal Statement / SOP", price: 999 },
   { value: "SP", label: "Study Plan (SP)", price: 799 },

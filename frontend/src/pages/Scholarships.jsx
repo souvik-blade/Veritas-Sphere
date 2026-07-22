@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
 import { Search, Filter, ArrowRight, Globe, Award, X } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
-import { WHATSAPP_NUMBERS } from "@/lib/config";
+import { WHATSAPP_NUMBERS, saveToGoogleSheet } from "@/lib/config";
 import { SCHOLARSHIPS } from "@/lib/scholarshipsData";
 
 // const LEVELS = ["All", "UG", "Masters", "PhD", "Associate"];
@@ -240,6 +240,19 @@ function ApplyModal({ scholarship, onClose }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    saveToGoogleSheet({
+      form_type: "Scholarship Application",
+      scholarship: scholarship?.title,
+      country: scholarship?.country,
+      candidate_name: form.candidate_name,
+      email: form.email,
+      mobile: form.mobile,
+      degree_plan: form.degree_plan,
+      major: form.major,
+      education: form.education,
+      birth_date: form.birth_date,
+    });
+
     const waNumber = WHATSAPP_NUMBERS[0]?.number || "919466145196";
     const text =
       `*Scholarship Application Request*\n\n` +

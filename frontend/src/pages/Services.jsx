@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { toast } from "sonner";
 import { Check, Clock, Sparkles, ArrowRight, BookOpen, FileSignature, FileText, GraduationCap, Layers, Star, MessageCircle } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
-import { PACKAGES, WHATSAPP_NUMBERS } from "@/lib/config";
+import { PACKAGES, WHATSAPP_NUMBERS, saveToGoogleSheet } from "@/lib/config";
 
 const PLANS = [
   {
@@ -275,6 +275,16 @@ function BookingForm() {
     e.preventDefault();
     const pkgObj = PACKAGES.find((p) => p.value === form.package);
     const pkgLabel = pkgObj ? `${pkgObj.label} (₹${pkgObj.price})` : form.package;
+
+    saveToGoogleSheet({
+      form_type: "Package Booking",
+      package: pkgLabel,
+      candidate_name: form.candidate_name,
+      email: form.email,
+      mobile: form.mobile,
+      notes: form.notes,
+    });
+
     const waNumber = WHATSAPP_NUMBERS[0]?.number || "919466145196";
 
     const text =

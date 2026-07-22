@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { toast } from "sonner";
 import { ArrowRight, Calendar, Clock, Sparkles, ShieldCheck, MessageCircle } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
-import { WHATSAPP_NUMBERS } from "@/lib/config";
+import { WHATSAPP_NUMBERS, saveToGoogleSheet } from "@/lib/config";
 
 export default function Consultation() {
   const [form, setForm] = useState({
@@ -19,6 +19,18 @@ export default function Consultation() {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    saveToGoogleSheet({
+      form_type: "Free Consultation",
+      candidate_name: form.candidate_name,
+      email: form.email,
+      mobile: form.mobile,
+      target_country: form.target_country,
+      target_level: form.target_level,
+      preferred_date: form.preferred_date,
+      preferred_time: form.preferred_time,
+      goals: form.goals,
+    });
+
     const waNumber = WHATSAPP_NUMBERS[0]?.number || "919466145196";
     const text =
       `*Free Consultation Request*\n\n` +
