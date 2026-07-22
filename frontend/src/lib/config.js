@@ -11,11 +11,19 @@ export const GOOGLE_SHEET_URL =
 export const saveToGoogleSheet = async (data) => {
   if (!GOOGLE_SHEET_URL) return;
   try {
+    const params = new URLSearchParams();
+    params.append("timestamp", new Date().toLocaleString("en-IN"));
+    Object.keys(data).forEach((key) => {
+      if (data[key] !== undefined && data[key] !== null) {
+        params.append(key, String(data[key]));
+      }
+    });
+
     await fetch(GOOGLE_SHEET_URL, {
       method: "POST",
       mode: "no-cors",
-      headers: { "Content-Type": "text/plain" },
-      body: JSON.stringify({ ...data, timestamp: new Date().toLocaleString("en-IN") }),
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: params.toString(),
     });
   } catch (err) {
     console.warn("Google Sheet submission note:", err);
