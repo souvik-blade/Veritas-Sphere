@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
 import { Search, Filter, ArrowRight, Globe, Award, X } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
-import { api } from "@/lib/config";
+import { WHATSAPP_NUMBERS } from "@/lib/config";
 import { SCHOLARSHIPS } from "@/lib/scholarshipsData";
 
 // const LEVELS = ["All", "UG", "Masters", "PhD", "Associate"];
@@ -204,17 +204,7 @@ function ScholarshipCard({ item, onApply }) {
           </span>
         ))}
       </div>
-      <div className="mt-5 pt-5 border-t border-brand-line space-y-2">
-        <div className="text-[11px] uppercase tracking-[0.16em] text-brand-muted font-semibold">Deadlines</div>
-        {deadlines.map((d, i) => (
-          <div key={i} className="flex items-start gap-2 text-[13px] text-brand-ink/85">
-            <span className="font-mono text-brand-muted shrink-0">{(d.levels || []).join(" / ") || "—"}</span>
-            <span className="text-brand-ink/40">·</span>
-            <span className="font-semibold text-brand-ink">{formatDeadlineDate(d.date)}</span>
-          </div>
-        ))}
-      </div>
-      <div className="mt-5 pt-5 border-t border-brand-line flex items-center justify-between gap-3">
+      <div className="mt-auto pt-6 border-t border-brand-line flex items-center justify-between gap-3">
         {item.official_site ? (
           <a href={item.official_site} target="_blank" rel="noreferrer" className="text-[12px] text-brand-muted hover:text-brand truncate" data-testid={`scholarship-site-${item.id}`}>
             Official site ↗
@@ -249,18 +239,23 @@ function ApplyModal({ scholarship, onClose }) {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(null);
 
-  const onSubmit = async (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
-    try {
-      const { data } = await api.post("/applications", form);
-      setSuccess(data);
-      toast.success(`Application submitted · ${data.id}`);
-    } catch (err) {
-      toast.error(err?.response?.data?.detail || "Could not submit");
-    } finally {
-      setLoading(false);
-    }
+    const waNumber = WHATSAPP_NUMBERS[0]?.number || "919466145196";
+    const text =
+      `*Scholarship Application Request*\n\n` +
+      `*Scholarship:* ${scholarship?.flag} ${scholarship?.title}\n` +
+      `*Country:* ${scholarship?.country}\n` +
+      `*Candidate Name:* ${form.candidate_name}\n` +
+      `*Email:* ${form.email}\n` +
+      `*Mobile:* ${form.mobile}\n` +
+      `*Birth Date:* ${form.birth_date || "N/A"}\n` +
+      `*Target Level:* ${form.target_level}`;
+
+    const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank");
+    toast.success("Opening WhatsApp with your application details...");
+    setSuccess({ id: `AP-${Math.floor(100000 + Math.random() * 900000)}` });
   };
 
   return (

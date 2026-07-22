@@ -12,6 +12,7 @@ const NAV = [
   { to: "/about", label: "About" },
   { to: "/notice", label: "Notice" },
   { to: "/contact", label: "Contact" },
+  { to: "/additional-services", label: "Additional Services" },
   { to: "/terms", label: "Terms & Conditions" },
 ];
 
@@ -153,7 +154,7 @@ function Footer() {
           <ul className="space-y-3 text-sm text-white/85">
             <li className="flex items-start gap-2"><Phone size={15} className="mt-0.5" strokeWidth={1.5} /> +91 94661 45196</li>
             <li className="flex items-start gap-2"><Mail size={15} className="mt-0.5" strokeWidth={1.5} /> veritassphere26@gmail.com</li>
-            <li className="flex items-start gap-2"><MapPin size={15} className="mt-0.5" strokeWidth={1.5} /> Mon–Fri · 10am – 6pm</li>
+            <li className="flex items-start gap-2"><MapPin size={15} className="mt-0.5" strokeWidth={1.5} /> Mon–Sat · 10am – 6pm</li>
             <li className="text-white/60 text-xs mt-3">Udyam Reg No.<br/>UDYAM-OD-05-0063562</li>
           </ul>
         </div>

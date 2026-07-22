@@ -1,16 +1,19 @@
-import React, { useState } from "react";
-import { toast } from "sonner";
-import { ArrowRight, FileCheck2, Languages, ShieldCheck, Stamp, Truck, Phone, Clock, Image as ImageIcon, MessageCircle } from "lucide-react";
+import React from "react";
+import { ArrowRight, FileCheck2, Languages, ShieldCheck, Stamp, Truck, Clock, Image as ImageIcon, MessageCircle, PhoneCall } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
-import { api } from "@/lib/config";
+import { WHATSAPP_NUMBERS } from "@/lib/config";
+
+const WA_NUMBER = WHATSAPP_NUMBERS[0]?.number || "919466145196";
+
+const WA_URL = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Hi, I would like to contact you to place an apostille order, check sample documents, and get a price quote.")}`;
 
 const STEPS = [
-  { icon: FileCheck2, title: "Online Submission", desc: "Submit your academic, personal or legal documents online — no physical pickup required. We verify scans before processing." },
+  { icon: FileCheck2, title: "Online Verification", desc: "Share document details & scans online. We verify document type, state authority, and target country requirements." },
   { icon: Languages, title: "Translation (if needed)", desc: "Certified translators convert documents into the required language for international acceptance." },
-  { icon: ShieldCheck, title: "Authentication", desc: "Documents are verified by the issuing authority — university, government office or notary." },
-  { icon: Stamp, title: "Apostille Certification", desc: "Official stamp/seal attached by the designated MEA / state authority — confirming international validity." },
-  { icon: ImageIcon, title: "Verification Preview", desc: "Before final delivery we send you a clear image of the completed apostilled documents so you can verify everything is in order." },
-  { icon: Truck, title: "Home Delivery", desc: "After your verification approval, the apostilled documents are couriered to your home address with tracking and digital confirmation." },
+  { icon: ShieldCheck, title: "Authentication", desc: "Documents are verified by the issuing authority — university, state HRD, Home Department or notary." },
+  { icon: Stamp, title: "Apostille Certification", desc: "Official stamp/seal attached by MEA / designated state authority — confirming international validity." },
+  { icon: ImageIcon, title: "Sample Preview & Verification", desc: "Before final courier dispatch, we send you a clear image preview of the completed apostilled document for your verification." },
+  { icon: Truck, title: "Home Delivery", desc: "After your approval, the apostilled originals are couriered to your home address with tracking." },
 ];
 
 export default function Apostille() {
@@ -28,17 +31,20 @@ export default function Apostille() {
             </h1>
             <p className="mt-5 text-brand-muted text-lg leading-relaxed">
               Apostille is an international certification that verifies your document's authenticity for any country in
-              the Hague Convention. We receive your documents online and, after processing, courier the apostilled originals to your home address.
+              the Hague Convention. Contact us on WhatsApp to place your order, view sample apostille documents, and get an instant price quote.
             </p>
             <div className="mt-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand/10 text-brand text-[12px] font-semibold">
-              <ShieldCheck size={14} strokeWidth={2} /> Orders are accepted only via the form below — calls are for queries only.
+              <ShieldCheck size={14} strokeWidth={2} /> Contact us for order, sample document previews & price quotes on WhatsApp.
             </div>
             <div className="mt-7 flex flex-wrap gap-4">
-              <a href="#order" className="btn-brand inline-flex items-center gap-2" data-testid="apostille-cta-order">
-                Start an apostille order <ArrowRight size={18} strokeWidth={1.7} />
-              </a>
-              <a href="https://wa.me/919466145196" target="_blank" rel="noreferrer" className="btn-outline-brand inline-flex items-center gap-2" data-testid="apostille-contact">
-                <MessageCircle size={16} /> Apostille queries · WhatsApp +91 94661 45196
+              <a
+                href={WA_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="btn-brand inline-flex items-center gap-2"
+                data-testid="apostille-cta-whatsapp"
+              >
+                <MessageCircle size={18} /> Contact us for order <ArrowRight size={18} strokeWidth={1.7} />
               </a>
             </div>
           </div>
@@ -93,38 +99,10 @@ export default function Apostille() {
         </div>
       </section>
 
-
-
-      {/* <section className="section bg-white" data-testid="apostille-samples">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <SectionTitle eyebrow="Sample Apostille Documents" title="Preview the kind of finished document evidence you receive." subtitle="These sample visuals show how apostille verification images are presented before final courier dispatch." />
-          <div className="grid md:grid-cols-3 gap-6 mt-12">
-            {["Academic Certificate", "Birth Certificate"].map((label) => (
-              <div key={label} className="card-soft p-5">
-                <div className="aspect-[4/5] rounded-2xl bg-white border border-brand-line p-5 shadow-inner">
-                  <div className="h-full rounded-xl border-2 border-brand-line bg-brand-cream/40 p-5 flex flex-col">
-                    <div className="text-[10px] uppercase tracking-[0.2em] text-brand-muted">Sample Apostille</div>
-                    <div className="mt-4 h-3 bg-brand/25 rounded-full w-3/4" />
-                    <div className="mt-3 h-3 bg-brand/15 rounded-full w-full" />
-                    <div className="mt-3 h-3 bg-brand/15 rounded-full w-5/6" />
-                    <div className="mt-auto flex items-end justify-between">
-                      <div className="w-20 h-20 rounded-full border-4 border-brand/40 grid place-items-center text-brand font-display font-black">AP</div>
-                      <Stamp className="text-brand" size={42} strokeWidth={1.4} />
-                    </div>
-                  </div>
-                </div>
-                <div className="font-display text-lg font-bold text-brand-ink mt-5">{label}</div>
-                <p className="text-brand-muted text-sm mt-1">Representative sample image for apostille verification preview.</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
       {/* Process timeline */}
       <section className="section bg-brand-cream" data-testid="apostille-process">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <SectionTitle eyebrow="Our Process" title="Five clear stages, full transparency." subtitle="Updates at every stage by phone or email." />
+          <SectionTitle eyebrow="Our Process" title="Six clear stages, full transparency." subtitle="Updates at every stage with image previews before dispatch." />
           <div className="mt-12 relative">
             <div className="hidden md:block absolute left-[27px] top-2 bottom-2 w-px bg-brand-line" aria-hidden />
             <div className="space-y-6">
@@ -145,114 +123,57 @@ export default function Apostille() {
         </div>
       </section>
 
-      {/* Order form */}
-      <section id="order" className="section bg-brand-ink relative overflow-hidden" data-testid="apostille-order">
+      {/* WhatsApp Contact Banner Section (No Form) */}
+      <section id="contact-whatsapp" className="section bg-brand-ink relative overflow-hidden" data-testid="apostille-whatsapp-banner">
         <div className="absolute inset-0 grain opacity-20" />
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-12 relative">
-          <div className="lg:col-span-5 text-white">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-[11px] uppercase tracking-[0.2em] font-semibold">
-              <Clock size={12} /> Place an Order
-            </div>
-            <h2 className="font-display text-4xl lg:text-5xl font-extrabold mt-4 leading-[1.05]">
-              Start your apostille in minutes.
-            </h2>
-            <p className="text-white/75 mt-5 leading-relaxed">
-              Tell us what you need apostilled. Our coordinator will reach out within an hour with a fixed quote
-              and the next steps. Orders are accepted <strong className="text-white">only through this form</strong> — for queries{" "}
-              <a href="https://wa.me/919466145196" target="_blank" rel="noreferrer" className="text-white underline underline-offset-2 hover:text-brand-cream font-semibold" data-testid="apostille-form-whatsapp">
-                WhatsApp +91 94661 45196
-              </a>.
-            </p>
-            <div className="mt-7 grid grid-cols-2 gap-4">
-              <Stat label="Working Days" value="Mon - Sat" />
-              <Stat label="Turnaround" value="3–5 days*" />
-            </div>
-            <p className="text-white/55 text-xs mt-2">*excluding holidays</p>
+        <div className="max-w-5xl mx-auto px-6 lg:px-10 text-center relative z-10">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white text-[12px] uppercase tracking-[0.2em] font-semibold">
+            <MessageCircle size={14} className="text-brand" /> Instant Quote & Order
           </div>
-          <div className="lg:col-span-7">
-            <ApostilleForm />
+          <h2 className="font-display text-4xl sm:text-5xl font-extrabold text-white mt-5 leading-tight">
+            Contact us for order on <span className="text-brand">WhatsApp</span> for sample & price.
+          </h2>
+          <p className="text-white/80 text-lg max-w-2xl mx-auto mt-4 leading-relaxed">
+            Want to place an order, view sample apostille certificates, or get an accurate price quote for your documents? Reach out directly on WhatsApp to speak with our coordinator.
+          </p>
+
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href={WA_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-brand text-base py-3.5 px-8 inline-flex items-center gap-3 shadow-[0_20px_40px_-15px_rgba(236,92,83,0.5)]"
+              data-testid="apostille-banner-whatsapp-btn"
+            >
+              <MessageCircle size={22} /> Contact us for order on WhatsApp (+91 94661 45196)
+            </a>
+          </div>
+
+          <div className="mt-10 grid sm:grid-cols-3 gap-4 text-left border-t border-white/10 pt-8">
+            <div className="flex items-start gap-3 text-white/85">
+              <ImageIcon size={20} className="text-brand shrink-0 mt-0.5" />
+              <div>
+                <div className="font-semibold text-white text-sm">Sample Document Previews</div>
+                <div className="text-xs text-white/60 mt-0.5">Inspect verified apostille stamps & seals</div>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 text-white/85">
+              <Clock size={20} className="text-brand shrink-0 mt-0.5" />
+              <div>
+                <div className="font-semibold text-white text-sm">Instant Price Quotes</div>
+                <div className="text-xs text-white/60 mt-0.5">Fixed quotes based on country & document type</div>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 text-white/85">
+              <PhoneCall size={20} className="text-brand shrink-0 mt-0.5" />
+              <div>
+                <div className="font-semibold text-white text-sm">Direct Support</div>
+                <div className="text-xs text-white/60 mt-0.5">Expert assistance for MEA & State HRD attestation</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
     </>
-  );
-}
-
-function Stat({ label, value }) {
-  return (
-    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/10">
-      <div className="text-white/60 text-[11px] uppercase tracking-[0.16em]">{label}</div>
-      <div className="font-display text-3xl font-extrabold mt-1 text-white">{value}</div>
-    </div>
-  );
-}
-
-function ApostilleForm() {
-  const [form, setForm] = useState({
-    candidate_name: "",
-    email: "",
-    mobile: "",
-    document_type: "",
-    num_documents: 1,
-    target_country: "",
-    notes: "",
-  });
-  const [loading, setLoading] = useState(false);
-  const [confirmation, setConfirmation] = useState(null);
-
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      const { data } = await api.post("/apostille", { ...form, num_documents: Number(form.num_documents) });
-      setConfirmation(data);
-      toast.success(`Order placed · ${data.id}`);
-      setForm({ candidate_name: "", email: "", mobile: "", document_type: "", num_documents: 1, target_country: "", notes: "" });
-    } catch (err) {
-      toast.error(err?.response?.data?.detail || "Could not place order");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  return (
-    <form onSubmit={onSubmit} className="bg-white rounded-3xl p-8 lg:p-10 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.4)]" data-testid="apostille-form">
-      <div className="font-display text-2xl font-bold text-brand-ink">Apostille order</div>
-      <p className="text-brand-muted text-sm mt-1">We'll quote a fixed price and confirm by email & WhatsApp.</p>
-      <div className="grid sm:grid-cols-2 gap-4 mt-6">
-        <Field label="Candidate name" span={2}><input required className="input-soft" value={form.candidate_name} onChange={(e) => setForm({ ...form, candidate_name: e.target.value })} data-testid="apostille-name" /></Field>
-        <Field label="Email"><input required type="email" className="input-soft" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} data-testid="apostille-email" /></Field>
-        <Field label="Mobile"><input required className="input-soft" value={form.mobile} onChange={(e) => setForm({ ...form, mobile: e.target.value })} data-testid="apostille-mobile" /></Field>
-        <Field label="Document type">
-          <select required className="input-soft" value={form.document_type} onChange={(e) => setForm({ ...form, document_type: e.target.value })} data-testid="apostille-doctype">
-            <option value="">Select…</option>
-            {["Degree / Transcript", "Birth Certificate", "Marriage Certificate", "Affidavit", "Police Clearance", "School Leaving", "Other"].map((d) => (
-              <option key={d} value={d}>{d}</option>
-            ))}
-          </select>
-        </Field>
-        <Field label="No. of documents"><input required type="number" min={1} max={50} className="input-soft" value={form.num_documents} onChange={(e) => setForm({ ...form, num_documents: e.target.value })} data-testid="apostille-num" /></Field>
-        <Field label="Target country" span={2}><input className="input-soft" value={form.target_country} onChange={(e) => setForm({ ...form, target_country: e.target.value })} data-testid="apostille-country" placeholder="e.g. South Korea" /></Field>
-        <Field label="Notes" span={2}><textarea className="input-soft min-h-[90px]" value={form.notes} onChange={(e) => setForm({ ...form, notes: e.target.value })} data-testid="apostille-notes" placeholder="Urgency, special requirements, target country deadline etc." /></Field>
-      </div>
-      <button type="submit" disabled={loading} className="btn-brand mt-6 w-full inline-flex items-center justify-center gap-2 disabled:opacity-60" data-testid="apostille-submit">
-        {loading ? "Submitting…" : (<>Place order <ArrowRight size={18} strokeWidth={1.7} /></>)}
-      </button>
-      {confirmation && (
-        <div className="mt-6 rounded-2xl bg-brand/10 border border-brand/20 p-5 text-brand-ink" data-testid="apostille-confirmation">
-          <div className="font-semibold">Order received</div>
-          <div className="text-sm mt-1">Reference: <span className="font-mono">{confirmation.id}</span> — our team will call you within an hour with a fixed quote.</div>
-        </div>
-      )}
-    </form>
-  );
-}
-
-function Field({ label, children, span = 1 }) {
-  return (
-    <div className={span === 2 ? "sm:col-span-2" : ""}>
-      <label className="block text-[12px] uppercase tracking-[0.16em] text-brand-muted font-semibold mb-1.5">{label}</label>
-      {children}
-    </div>
   );
 }

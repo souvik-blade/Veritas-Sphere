@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { toast } from "sonner";
 import { ArrowRight, Calendar, Clock, Sparkles, ShieldCheck, MessageCircle } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
-import { api, WHATSAPP_NUMBERS } from "@/lib/config";
+import { WHATSAPP_NUMBERS } from "@/lib/config";
 
 export default function Consultation() {
   const [form, setForm] = useState({
@@ -15,22 +15,26 @@ export default function Consultation() {
     preferred_time: "",
     goals: "",
   });
-  const [loading, setLoading] = useState(false);
   const [confirmation, setConfirmation] = useState(null);
 
-  const onSubmit = async (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
-    try {
-      const { data } = await api.post("/consultations", form);
-      setConfirmation(data);
-      toast.success(`Consultation booked · ${data.id}`);
-      setForm({ candidate_name: "", email: "", mobile: "", target_country: "", target_level: "Undecided", preferred_date: "", preferred_time: "", goals: "" });
-    } catch (err) {
-      toast.error(err?.response?.data?.detail || "Could not book consultation");
-    } finally {
-      setLoading(false);
-    }
+    const waNumber = WHATSAPP_NUMBERS[0]?.number || "919466145196";
+    const text =
+      `*Free Consultation Request*\n\n` +
+      `*Name:* ${form.candidate_name}\n` +
+      `*Email:* ${form.email}\n` +
+      `*Mobile:* ${form.mobile}\n` +
+      `*Target Country:* ${form.target_country || "N/A"}\n` +
+      `*Target Level:* ${form.target_level}\n` +
+      `*Preferred Date:* ${form.preferred_date || "Flexible"}\n` +
+      `*Preferred Time:* ${form.preferred_time || "Flexible"}\n` +
+      `*Goals / Questions:* ${form.goals || "N/A"}`;
+
+    const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank");
+    toast.success("Opening WhatsApp with your consultation details...");
+    setConfirmation({ id: `CS-${Math.floor(100000 + Math.random() * 900000)}` });
   };
 
   return (
@@ -51,7 +55,7 @@ export default function Consultation() {
             <ul className="mt-8 space-y-3 text-brand-ink/85">
               {[
                 { icon: ShieldCheck, t: "Free & no-obligation" },
-                { icon: Clock, t: "20 minutes · Mon–Fri 10am – 6pm" },
+                { icon: Clock, t: "20 minutes · Mon–Sat 10am – 6pm" },
                 { icon: MessageCircle, t: "Confirmation via WhatsApp + email" },
               ].map(({ icon: Ic, t }) => (
                 <li key={t} className="flex items-start gap-3"><Ic size={18} className="text-brand mt-0.5" strokeWidth={1.6} /> {t}</li>

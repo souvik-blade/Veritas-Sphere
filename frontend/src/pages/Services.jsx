@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { toast } from "sonner";
-import { Check, Clock, Sparkles, ArrowRight, BookOpen, FileSignature, FileText, GraduationCap, Layers, Star } from "lucide-react";
+import { Check, Clock, Sparkles, ArrowRight, BookOpen, FileSignature, FileText, GraduationCap, Layers, Star, MessageCircle } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
-import { api, PACKAGES } from "@/lib/config";
+import { api, PACKAGES, WHATSAPP_NUMBERS } from "@/lib/config";
 
 const PLANS = [
   {
@@ -108,6 +108,20 @@ export default function Services() {
               Choose a focused service or grab a curated package — each plan includes a dedicated mentor, personalised
               writing and comprehensive language refinement.
             </p>
+            <div className="mt-7 inline-flex flex-wrap items-center gap-3 p-4 px-6 rounded-2xl bg-white/90 backdrop-blur-sm border border-brand-line shadow-sm">
+              <span className="text-sm font-medium text-brand-ink">
+                Require a customized combination? Contact our team for bespoke package options and tailored details.
+              </span>
+              <a
+                href={`https://wa.me/${WHATSAPP_NUMBERS[0]?.number || "919466145196"}?text=${encodeURIComponent("Hi, I would like to inquire about a custom/bespoke service package and additional details.")}`}
+                target="_blank"
+                rel="noreferrer"
+                className="btn-brand text-xs py-2 px-4.5 inline-flex items-center gap-1.5 font-semibold shrink-0"
+                data-testid="services-personalized-package-cta"
+              >
+                <MessageCircle size={15} /> Inquire for Custom Package
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -129,6 +143,7 @@ export default function Services() {
                 <PlanCard key={p.id} plan={p} index={i} large />
               ))}
             </div>
+
             <p className="text-center text-sm text-brand-muted mt-6">
               Extra customisation / urgency: <span className="font-semibold text-brand">+₹129</span> (varies by requirement)
             </p>
@@ -249,7 +264,6 @@ function PlanCard({ plan, index, large = false }) {
 
 function BookingForm() {
   const [form, setForm] = useState({ package: "BOTH", candidate_name: "", email: "", mobile: "", notes: "" });
-  const [loading, setLoading] = useState(false);
   const [confirmation, setConfirmation] = useState(null);
 
   React.useEffect(() => {
@@ -258,19 +272,24 @@ function BookingForm() {
     return () => window.removeEventListener("vs-prefill-package", handler);
   }, []);
 
-  const onSubmit = async (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
-    try {
-      const { data } = await api.post("/bookings", form);
-      setConfirmation(data);
-      toast.success(`Booking confirmed · ${data.id}`);
-      setForm({ package: form.package, candidate_name: "", email: "", mobile: "", notes: "" });
-    } catch (err) {
-      toast.error(err?.response?.data?.detail || "Could not submit booking");
-    } finally {
-      setLoading(false);
-    }
+    const pkgObj = PACKAGES.find((p) => p.value === form.package);
+    const pkgLabel = pkgObj ? `${pkgObj.label} (₹${pkgObj.price})` : form.package;
+    const waNumber = WHATSAPP_NUMBERS[0]?.number || "919466145196";
+
+    const text =
+      `*Package Booking Request*\n\n` +
+      `*Package:* ${pkgLabel}\n` +
+      `*Candidate Name:* ${form.candidate_name}\n` +
+      `*Email:* ${form.email}\n` +
+      `*Mobile:* ${form.mobile}\n` +
+      `*Notes:* ${form.notes || "N/A"}`;
+
+    const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank");
+    toast.success("Opening WhatsApp with your booking details...");
+    setConfirmation({ id: `BK-${Math.floor(100000 + Math.random() * 900000)}` });
   };
 
   return (

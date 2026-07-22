@@ -1,27 +1,28 @@
 import React, { useState } from "react";
 import { toast } from "sonner";
 import { ArrowRight, Mail, Phone, MapPin, MessageCircle, Send, Clock } from "lucide-react";
-import { api, WHATSAPP_NUMBERS } from "@/lib/config";
+import { WHATSAPP_NUMBERS } from "@/lib/config";
 import SectionTitle from "@/components/SectionTitle";
 
 export default function Contact() {
   const [form, setForm] = useState({ full_name: "", email: "", phone: "", subject: "", message: "" });
-  const [loading, setLoading] = useState(false);
   const [confirmation, setConfirmation] = useState(null);
 
-  const onSubmit = async (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
-    try {
-      const { data } = await api.post("/contact", form);
-      setConfirmation(data);
-      toast.success(`Message sent · ${data.id}`);
-      setForm({ full_name: "", email: "", phone: "", subject: "", message: "" });
-    } catch (err) {
-      toast.error(err?.response?.data?.detail || "Could not send message");
-    } finally {
-      setLoading(false);
-    }
+    const waNumber = WHATSAPP_NUMBERS[0]?.number || "919466145196";
+    const text =
+      `*General Contact Inquiry*\n\n` +
+      `*Name:* ${form.full_name}\n` +
+      `*Email:* ${form.email}\n` +
+      `*Phone:* ${form.phone || "N/A"}\n` +
+      `*Subject:* ${form.subject || "General Inquiry"}\n` +
+      `*Message:* ${form.message}`;
+
+    const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank");
+    toast.success("Opening WhatsApp with your contact message...");
+    setConfirmation({ id: `CT-${Math.floor(100000 + Math.random() * 900000)}` });
   };
 
   return (
@@ -49,7 +50,7 @@ export default function Contact() {
           <aside className="lg:col-span-5 space-y-5">
             <ContactInfoCard icon={Phone} title="Call us" lines={["+91 94661 45196"]} hrefs={["tel:+919466145196"]} testid="contact-phones" />
             <ContactInfoCard icon={Mail} title="Email" lines={["veritassphere26@gmail.com"]} hrefs={["mailto:veritassphere26@gmail.com"]} testid="contact-email" />
-            <ContactInfoCard icon={Clock} title="Office Hours" lines={["Mon – Fri", "10:00 am – 6:00 pm"]} testid="contact-hours" />
+            <ContactInfoCard icon={Clock} title="Office Hours" lines={["Mon – Sat", "10:00 am – 6:00 pm"]} testid="contact-hours" />
             <ContactInfoCard icon={MapPin} title="Registered" lines={["Udyam · UDYAM-OD-05-0063562"]} testid="contact-udyam" />
 
             <div className="rounded-3xl bg-brand text-white p-6 relative overflow-hidden" data-testid="contact-whatsapp">

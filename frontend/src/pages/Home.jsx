@@ -10,14 +10,14 @@ const REASONS = [
   { icon: Users, title: "Expert Mentors", desc: "Insider knowledge from alumni who navigated the same journey." },
   { icon: Sparkles, title: "Personalised Approach", desc: "Tailored study-plan and statement writing — never templated." },
   { icon: ShieldCheck, title: "Personalised Revisions", desc: "Targeted revisions until your application reads sharp and authentic." },
-  { icon: Clock, title: "Weekdays Support", desc: "10 AM – 6 PM (Mon–Fri)" },
+  { icon: Clock, title: "Mon – Sat Support", desc: "10 AM – 6 PM (Mon–Sat)" },
 ];
 
 const STEPS = [
-  { icon: GraduationCap, title: "Free Consultation", desc: "Tell us your dream — we map a personalised scholarship roadmap." },
+  { icon: GraduationCap, title: "Our Services", desc: "Tell us your goals — we analyse your profile and map a personalised scholarship and application roadmap." },
   { icon: FileText, title: "Documents & Drafting", desc: "We craft your PS, SP and supporting documents with revisions." },
   { icon: ShieldCheck, title: "Submission & Apostille", desc: "Verified, apostilled, and submitted on time — every time." },
-  { icon: Award, title: "Funded Offer", desc: "Track your decision and prepare for departure with our help." },
+  { icon: Award, title: "Offer Letter / Funded Offer", desc: "Track your application and secure an offer letter or funded offer based on your profile." },
 ];
 
 export default function Home() {
@@ -36,7 +36,7 @@ export default function Home() {
             </h1>
             <p className="mt-6 text-brand-muted text-lg max-w-xl leading-relaxed">
               Veritas Sphere is a personalised scholarship & study-abroad consultancy. We craft your story, prepare your
-              documents and walk every step until you land a fully-funded offer.
+              documents and walk every step until you secure an offer letter or funded offer based on your profile.
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
               <Link to="/consultation" className="btn-brand inline-flex items-center gap-2" data-testid="hero-book-cta">
@@ -49,7 +49,7 @@ export default function Home() {
             <div className="mt-12 grid grid-cols-3 gap-4 max-w-lg">
               <Stat value="85%" label="Success rate" />
               <Stat value="30+" label="Countries" />
-              <Stat value="Weekdays" label={<>Support<br /><span className="text-[10px]">10 AM – 6 PM (Mon–Fri)</span></>} />
+              <Stat value="Mon – Sat" label={<>Support<br /><span className="text-[10px]">10 AM – 6 PM (Mon–Sat)</span></>} />
             </div>
           </div>
 
@@ -113,7 +113,7 @@ export default function Home() {
       {/* Process */}
       <section className="section bg-white" data-testid="home-process">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <SectionTitle eyebrow="Our Process" title="Four steps to a funded future." />
+          <SectionTitle eyebrow="Our Process" title="Four steps to a bright future." />
           <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {STEPS.map((s, i) => (
               <div key={s.title} className="relative card-soft p-7" data-testid={`process-step-${i}`}>
