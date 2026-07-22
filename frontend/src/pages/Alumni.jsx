@@ -127,7 +127,6 @@ export default function Alumni() {
           </div>
         </div>
       </section>
-      )}
     </>
   );
 }

@@ -56,7 +56,6 @@ export default function Notice() {
           </ol>
         </div>
       </section>
-      )}
     </>
   );
 }
