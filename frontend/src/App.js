@@ -17,7 +17,7 @@ import Flipbook from "@/pages/Flipbook";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Toaster position="top-right" richColors />
       <Routes>
         <Route element={<Layout />}>
