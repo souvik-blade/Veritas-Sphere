@@ -1,17 +1,4 @@
-import axios from "axios";
-
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-export const API = `${BACKEND_URL}/api`;
-
-export const api = axios.create({ baseURL: API });
-
-api.interceptors.request.use((config) => {
-  const token = localStorage.getItem("vs_token");
-  if (token) config.headers.Authorization = `Bearer ${token}`;
-  return config;
-});
-
-export const LOGO_URL = "/images/veritas-logo.jpg"
+export const LOGO_URL = "/images/veritas-logo.jpg";
 
 export const WHATSAPP_NUMBERS = [
   { label: "+91 94661 45196", number: "919466145196" },

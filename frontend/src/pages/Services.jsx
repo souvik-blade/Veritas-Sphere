@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { toast } from "sonner";
 import { Check, Clock, Sparkles, ArrowRight, BookOpen, FileSignature, FileText, GraduationCap, Layers, Star, MessageCircle } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
-import { api, PACKAGES, WHATSAPP_NUMBERS } from "@/lib/config";
+import { PACKAGES, WHATSAPP_NUMBERS } from "@/lib/config";
 
 const PLANS = [
   {
