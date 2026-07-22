@@ -80,7 +80,7 @@ export default function Consultation() {
           <div className="lg:col-span-6">
             <form onSubmit={onSubmit} className="bg-white rounded-3xl p-8 lg:p-10 border border-brand-line shadow-[0_30px_80px_-30px_rgba(0,0,0,0.2)]" data-testid="consultation-form">
               <div className="font-display text-2xl font-bold text-brand-ink">Book your free slot</div>
-              <p className="text-brand-muted text-sm mt-1">We'll confirm by WhatsApp & email.</p>
+              <p className="text-brand-muted text-sm mt-1">We'll confirm via WhatsApp.</p>
               <div className="grid sm:grid-cols-2 gap-4 mt-6">
                 <Field label="Full name" span={2}><input required className="input-soft" value={form.candidate_name} onChange={(e) => setForm({ ...form, candidate_name: e.target.value })} data-testid="consult-name" placeholder="Your full name" /></Field>
                 <Field label="Email"><input required type="email" className="input-soft" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} data-testid="consult-email" placeholder="you@example.com" /></Field>

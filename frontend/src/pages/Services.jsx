@@ -187,11 +187,10 @@ export default function Services() {
               Book your slot in <span className="text-brand">under a minute.</span>
             </h2>
             <p className="text-white/75 mt-5 leading-relaxed">
-              Pick a package, share your details, and we'll email you a confirmation along with the next steps within an
-              hour. We respond on WhatsApp, email or call — your choice.
+              Pick a package, share your details, and we'll confirm your slot along with the next steps on WhatsApp. We respond on WhatsApp or call — your choice.
             </p>
             <ul className="mt-8 space-y-3">
-              {["Auto-generated booking ID & email confirmation", "Direct admin notification for instant follow-up", "Free initial 20-min consultation included"].map((t) => (
+              {["Auto-generated booking reference", "Direct admin notification for instant follow-up", "Free initial 20-min consultation included"].map((t) => (
                 <li key={t} className="flex items-start gap-3 text-white/85">
                   <Check size={18} className="text-brand mt-0.5" strokeWidth={2} /> {t}
                 </li>
@@ -304,7 +303,7 @@ function BookingForm() {
   return (
     <form id="booking-form" onSubmit={onSubmit} className="bg-white rounded-3xl p-8 lg:p-10 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.4)]" data-testid="booking-form">
       <div className="font-display text-2xl font-bold text-brand-ink">Book a slot</div>
-      <p className="text-brand-muted text-sm mt-1">Fill in your details — we'll confirm by email & WhatsApp.</p>
+      <p className="text-brand-muted text-sm mt-1">Fill in your details — we'll confirm via WhatsApp.</p>
 
       <div className="grid sm:grid-cols-2 gap-4 mt-6">
         <div className="sm:col-span-2">
@@ -345,8 +344,8 @@ function BookingForm() {
 
       {confirmation && (
         <div className="mt-6 rounded-2xl bg-brand/10 border border-brand/20 p-5 text-brand-ink" data-testid="booking-confirmation">
-          <div className="font-semibold">Booking confirmed</div>
-          <div className="text-sm mt-1">Reference: <span className="font-mono">{confirmation.id}</span> — confirmation email sent to {confirmation.email}.</div>
+          <div className="font-semibold">Booking submitted</div>
+          <div className="text-sm mt-1">Reference: <span className="font-mono">{confirmation.id}</span> — we'll reach out on WhatsApp shortly.</div>
         </div>
       )}
     </form>
