@@ -4,7 +4,9 @@ export const WHATSAPP_NUMBERS = [
   { label: "+91 94661 45196", number: "919466145196" },
 ];
 
-export const GOOGLE_SHEET_URL = process.env.REACT_APP_GOOGLE_SHEET_URL || "";
+export const GOOGLE_SHEET_URL =
+  process.env.REACT_APP_GOOGLE_SHEET_URL ||
+  "https://script.google.com/macros/s/AKfycbySBtOBiigCcMON-rrbT5-kBnSqcJtUvsIbkvZKs-lkMJUiI_WzM0gt4lKV3dMyBmwX/exec";
 
 export const saveToGoogleSheet = async (data) => {
   if (!GOOGLE_SHEET_URL) return;
