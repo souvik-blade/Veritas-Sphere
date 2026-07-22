@@ -236,7 +236,6 @@ function ApplyModal({ scholarship, onClose }) {
     target_country: scholarship?.country || "",
     target_scholarship: scholarship?.title || "",
   });
-  const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(null);
 
   const onSubmit = (e) => {
@@ -296,8 +295,8 @@ function ApplyModal({ scholarship, onClose }) {
             <Field label="Language Exam (IELTS/TOPIK/JLPT…)"><input className="input-soft" value={form.language_exam} onChange={(e) => setForm({ ...form, language_exam: e.target.value })} data-testid="apply-language" /></Field>
             <Field label="Birth Date"><input type="date" required className="input-soft" value={form.birth_date} onChange={(e) => setForm({ ...form, birth_date: e.target.value })} data-testid="apply-birth" /></Field>
             <div className="sm:col-span-2 mt-2">
-              <button type="submit" disabled={loading} className="btn-brand w-full inline-flex items-center justify-center gap-2 disabled:opacity-60" data-testid="apply-submit">
-                {loading ? "Submitting…" : (<>Submit application <ArrowRight size={18} strokeWidth={1.7} /></>)}
+              <button type="submit" className="btn-brand w-full inline-flex items-center justify-center gap-2" data-testid="apply-submit">
+                Submit application <ArrowRight size={18} strokeWidth={1.7} />
               </button>
             </div>
           </form>

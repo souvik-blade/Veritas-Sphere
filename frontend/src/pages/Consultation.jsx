@@ -83,8 +83,8 @@ export default function Consultation() {
                 <Field label="Preferred time"><input type="time" className="input-soft" value={form.preferred_time} onChange={(e) => setForm({ ...form, preferred_time: e.target.value })} data-testid="consult-time" /></Field>
                 <Field label="Goals or questions" span={2}><textarea className="input-soft min-h-[90px]" value={form.goals} onChange={(e) => setForm({ ...form, goals: e.target.value })} data-testid="consult-goals" placeholder="What do you want to achieve? Any specific scholarships you've shortlisted?" /></Field>
               </div>
-              <button type="submit" disabled={loading} className="btn-brand mt-7 w-full inline-flex items-center justify-center gap-2 disabled:opacity-60" data-testid="consult-submit">
-                {loading ? "Booking…" : (<>Book free consultation <ArrowRight size={18} strokeWidth={1.7} /></>)}
+              <button type="submit" className="btn-brand mt-7 w-full inline-flex items-center justify-center gap-2" data-testid="consult-submit">
+                Book free consultation <ArrowRight size={18} strokeWidth={1.7} />
               </button>
               {confirmation && (
                 <div className="mt-6 rounded-2xl bg-brand/10 border border-brand/20 p-5 text-brand-ink" data-testid="consult-confirmation">
@@ -100,7 +100,6 @@ export default function Consultation() {
           </div>
         </div>
       </section>
-      )}
     </>
   );
 }

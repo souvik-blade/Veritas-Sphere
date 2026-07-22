@@ -204,7 +204,6 @@ export default function Services() {
           </div>
         </div>
       </section>
-      )}
     </>
   );
 }
@@ -330,8 +329,8 @@ function BookingForm() {
         </div>
       </div>
 
-      <button type="submit" disabled={loading} className="btn-brand mt-7 w-full inline-flex items-center justify-center gap-2 disabled:opacity-60" data-testid="booking-submit">
-        {loading ? "Submitting…" : (<>Submit booking <ArrowRight size={18} strokeWidth={1.7} /></>)}
+      <button type="submit" className="btn-brand mt-7 w-full inline-flex items-center justify-center gap-2" data-testid="booking-submit">
+        Submit booking <ArrowRight size={18} strokeWidth={1.7} />
       </button>
 
       {confirmation && (
