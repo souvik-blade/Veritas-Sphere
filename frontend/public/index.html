@@ -80,19 +80,20 @@
         work correctly both with client-side routing and a non-root public URL.
         Learn how to configure a non-root public URL by running `npm run build`.
         -->
+        <link rel="canonical" href="https://veritassphere.in/" />
         <title>Veritas Sphere | International Scholarship & Apostille Consultancy</title>
         <script>window.addEventListener("error",function(e){if(e.error instanceof DOMException&&e.error.name==="DataCloneError"&&e.message&&e.message.includes("PerformanceServerTiming")){e.stopImmediatePropagation();e.preventDefault()}},true);</script>
         <script type="text/javascript">
           (function(l) {
-            if (l.search[1] === 'p') {
-              var decoded = l.search.slice(1).split('&').map(function(s) {
-                return s.replace(/~and~/g, '&')
-              }).filter(function(s) {
-                return s.slice(0, 2) === 'p='
-              })[0].slice(2);
-              window.history.replaceState(null, null,
-                l.pathname.slice(0, -1) + decoded + l.hash
-              );
+            if (l.search[1] === '/' || l.search[1] === 'p') {
+              var q = l.search.slice(1);
+              if (q.indexOf('p=') === 0) q = q.slice(2);
+              var parts = q.split('&').map(function(s) { return s.replace(/~and~/g, '&'); });
+              var path = parts[0];
+              if (path.indexOf('/') !== 0) path = '/' + path;
+              var query = parts.slice(1).join('&');
+              var target = path + (query ? '?' + query : '') + l.hash;
+              window.history.replaceState(null, null, target);
             }
           }(window.location))
         </script>
