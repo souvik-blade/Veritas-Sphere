@@ -85,14 +85,13 @@
         <script>window.addEventListener("error",function(e){if(e.error instanceof DOMException&&e.error.name==="DataCloneError"&&e.message&&e.message.includes("PerformanceServerTiming")){e.stopImmediatePropagation();e.preventDefault()}},true);</script>
         <script type="text/javascript">
           (function(l) {
-            if (l.search[1] === '/' || l.search[1] === 'p') {
-              var q = l.search.slice(1);
-              if (q.indexOf('p=') === 0) q = q.slice(2);
-              var parts = q.split('&').map(function(s) { return s.replace(/~and~/g, '&'); });
-              var path = parts[0];
-              if (path.indexOf('/') !== 0) path = '/' + path;
-              var query = parts.slice(1).join('&');
-              var target = path + (query ? '?' + query : '') + l.hash;
+            if (l.search && l.search.indexOf('?p=') === 0) {
+              var searchStr = l.search.slice(3).replace(/~and~/g, '&');
+              var firstAmp = searchStr.indexOf('&');
+              var routePath = firstAmp !== -1 ? searchStr.slice(0, firstAmp) : searchStr;
+              var extraQuery = firstAmp !== -1 ? searchStr.slice(firstAmp + 1) : '';
+              if (routePath.indexOf('/') !== 0) routePath = '/' + routePath;
+              var target = routePath + (extraQuery ? '?' + extraQuery : '') + l.hash;
               window.history.replaceState(null, null, target);
             }
           }(window.location))
