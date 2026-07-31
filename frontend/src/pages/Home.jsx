@@ -28,10 +28,17 @@ export default function Home() {
         <div className="absolute inset-0 grain pointer-events-none opacity-40" />
         <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-20 pb-24 lg:pt-28 lg:pb-32 relative grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 fade-up">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-brand-ink text-[11px] uppercase tracking-[0.2em] font-semibold border border-brand-line">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand" /> Registered at Udyam · UDYAM-OD-05-0063562
+            <div className="flex flex-wrap items-center gap-3 mb-4">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-brand-ink text-[11px] uppercase tracking-[0.2em] font-semibold border border-brand-line">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand" /> Registered at Udyam · UDYAM-OD-05-0063562
+              </div>
+              <Link to="/luminosa" className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-ink text-white text-[11px] font-semibold hover:bg-brand transition-all shadow-md border border-white/20 group">
+                <Sparkles size={13} className="text-brand group-hover:text-white transition-colors" />
+                <span>Looking for Model UN? Visit <strong>Luminosa MUN Hub</strong></span>
+                <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
-            <h1 className="font-display mt-6 text-4xl sm:text-5xl lg:text-[64px] leading-[1.02] font-black tracking-tighter text-brand-ink">
+            <h1 className="font-display mt-2 text-4xl sm:text-5xl lg:text-[64px] leading-[1.02] font-black tracking-tighter text-brand-ink">
               Unlock Your Dream <span className="text-brand">International Scholarship</span>.
             </h1>
             <p className="mt-6 text-brand-muted text-lg max-w-xl leading-relaxed">
