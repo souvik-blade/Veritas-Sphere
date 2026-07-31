@@ -11,11 +11,16 @@ export const GOOGLE_SHEET_URL =
 export const saveToGoogleSheet = async (data) => {
   if (!GOOGLE_SHEET_URL) return;
   try {
+    const payload = {
+      timestamp: new Date().toLocaleString("en-IN"),
+      ...data,
+    };
+
+    // Try sending via URLSearchParams first
     const params = new URLSearchParams();
-    params.append("timestamp", new Date().toLocaleString("en-IN"));
-    Object.keys(data).forEach((key) => {
-      if (data[key] !== undefined && data[key] !== null) {
-        params.append(key, String(data[key]));
+    Object.keys(payload).forEach((key) => {
+      if (payload[key] !== undefined && payload[key] !== null) {
+        params.append(key, String(payload[key]));
       }
     });
 
