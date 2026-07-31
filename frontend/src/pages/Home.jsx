@@ -129,6 +129,29 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Luminosa MUN Division Banner */}
+      <section className="section bg-brand-ink text-white relative overflow-hidden" data-testid="home-luminosa-banner">
+        <div className="absolute inset-0 grain opacity-25" />
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10 grid lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-8">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand/20 text-brand text-[11px] uppercase tracking-[0.2em] font-semibold border border-brand/30 mb-4">
+              <Sparkles size={13} /> Youth Diplomacy Division
+            </div>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
+              Introducing <span className="text-brand">Luminosa MUN</span>
+            </h2>
+            <p className="mt-4 text-white/80 text-base sm:text-lg max-w-2xl leading-relaxed">
+              Explore our dedicated Model United Nations hub featuring UNSC, UNGA & Crisis committee simulations, Rules of Procedure (RoP) bootcamps, and 1-on-1 delegate mentorship.
+            </p>
+          </div>
+          <div className="lg:col-span-4 lg:text-right">
+            <Link to="/luminosa" className="btn-brand text-sm px-6 py-3.5 inline-flex items-center gap-2" data-testid="home-luminosa-cta">
+              Explore Luminosa MUN <ArrowRight size={18} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-brand" />

@@ -14,6 +14,7 @@ import Consultation from "@/pages/Consultation";
 import AdditionalServices from "@/pages/AdditionalServices";
 import Terms from "@/pages/Terms";
 import Flipbook from "@/pages/Flipbook";
+import Luminosa from "@/pages/Luminosa";
 
 export default function App() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
           <Route path="/additional-services" element={<AdditionalServices />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/flipbook" element={<Flipbook />} />
+          <Route path="/luminosa" element={<Luminosa />} />
         </Route>
       </Routes>
     </BrowserRouter>
