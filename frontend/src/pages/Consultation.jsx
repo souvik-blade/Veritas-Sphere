@@ -101,7 +101,7 @@ export default function Consultation() {
               </div>
 
               <button type="submit" className="btn-brand mt-5 w-full inline-flex items-center justify-center gap-2" data-testid="consult-submit">
-                Submit & send details on WhatsApp <ArrowRight size={18} strokeWidth={1.7} />
+                Submit Booking & Send Details on WhatsApp <ArrowRight size={18} strokeWidth={1.7} />
               </button>
               {confirmation && (
                 <div className="mt-6 rounded-2xl bg-brand/10 border border-brand/20 p-5 text-brand-ink" data-testid="consult-confirmation">

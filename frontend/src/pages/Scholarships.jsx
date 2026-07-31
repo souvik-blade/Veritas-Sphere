@@ -313,7 +313,7 @@ function ApplyModal({ scholarship, onClose }) {
             </div>
             <div className="sm:col-span-2">
               <button type="submit" className="btn-brand w-full inline-flex items-center justify-center gap-2" data-testid="apply-submit">
-                Submit & send details on WhatsApp <ArrowRight size={18} strokeWidth={1.7} />
+                Submit Booking & Send Details on WhatsApp <ArrowRight size={18} strokeWidth={1.7} />
               </button>
             </div>
           </form>

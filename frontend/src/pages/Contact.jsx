@@ -107,7 +107,7 @@ export default function Contact() {
               </div>
 
               <button type="submit" className="btn-brand mt-5 w-full inline-flex items-center justify-center gap-2" data-testid="contact-submit">
-                <Send size={16} strokeWidth={1.7} /> Submit & send details on WhatsApp
+                <Send size={16} strokeWidth={1.7} /> Submit Booking & Send Details on WhatsApp
               </button>
               {confirmation && (
                 <div className="mt-6 rounded-2xl bg-brand/10 border border-brand/20 p-5 text-brand-ink" data-testid="contact-confirmation">
