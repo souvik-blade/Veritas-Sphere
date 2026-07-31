@@ -93,7 +93,7 @@ const GUIDES = [
   { title: "Resolution & Clause Drafting Masterclass", desc: "How to draft operative clauses, sponsors, signatories, and amendments.", icon: Award }
 ];
 
-export default function Luminosa() {
+export default function Claritas() {
   const [form, setForm] = useState({
     candidate_name: "",
     email: "",
@@ -108,7 +108,7 @@ export default function Luminosa() {
   const onSubmit = (e) => {
     e.preventDefault();
     const payload = {
-      form_type: "Luminosa MUN Registration",
+      form_type: "Claritas MUN Registration",
       candidate_name: form.candidate_name,
       email: form.email,
       mobile: form.mobile,
@@ -121,7 +121,7 @@ export default function Luminosa() {
     saveToGoogleSheet(payload);
 
     const text =
-      `*Luminosa MUN Registration Request*\n\n` +
+      `*Claritas MUN Registration Request*\n\n` +
       `*Delegate Name:* ${form.candidate_name}\n` +
       `*Email:* ${form.email}\n` +
       `*Mobile:* ${form.mobile}\n` +
@@ -132,14 +132,14 @@ export default function Luminosa() {
 
     const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank");
-    toast.success("Opening WhatsApp with your Luminosa MUN registration details...");
-    setConfirmation({ id: `LM-${Math.floor(100000 + Math.random() * 900000)}` });
+    toast.success("Opening WhatsApp with your Claritas MUN registration details...");
+    setConfirmation({ id: `CM-${Math.floor(100000 + Math.random() * 900000)}` });
   };
 
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-brand-ink text-white overflow-hidden" data-testid="luminosa-hero">
+      <section className="relative bg-brand-ink text-white overflow-hidden" data-testid="claritas-hero">
         <div className="absolute inset-0 bg-gradient-to-b from-brand-ink via-[#0F172A] to-brand-ink opacity-90" />
         <div className="absolute inset-0 grain opacity-20" />
         
@@ -147,7 +147,7 @@ export default function Luminosa() {
 
         <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-24 pb-20 relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand/20 border border-brand/40 text-brand text-[11px] uppercase tracking-[0.2em] font-semibold mb-6">
-            <Sparkles size={14} className="text-brand animate-pulse" /> Luminosa Model United Nations · Veritas Sphere Division
+            <Sparkles size={14} className="text-brand animate-pulse" /> Claritas Model United Nations · Veritas Sphere Division
           </div>
           
           <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-black tracking-tighter max-w-4xl leading-[1.02]">
@@ -155,12 +155,12 @@ export default function Luminosa() {
           </h1>
           
           <p className="mt-6 text-white/80 text-lg sm:text-xl max-w-2xl leading-relaxed">
-            Welcome to <strong className="text-white">Luminosa MUN</strong> — a dedicated youth diplomacy & Model United Nations hub powered by Veritas Sphere. Designed for parliamentary mastery, substantive debate, and delegate excellence.
+            Welcome to <strong className="text-white">Claritas MUN</strong> — a dedicated youth diplomacy & Model United Nations hub powered by Veritas Sphere. Designed for parliamentary mastery, substantive debate, and delegate excellence.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <a href="#register" className="btn-brand text-sm px-6 py-3.5 inline-flex items-center gap-2" data-testid="luminosa-cta-register">
-              <Send size={16} /> Register for Luminosa MUN
+            <a href="#register" className="btn-brand text-sm px-6 py-3.5 inline-flex items-center gap-2" data-testid="claritas-cta-register">
+              <Send size={16} /> Register for Claritas MUN
             </a>
             <a href="#committees" className="px-6 py-3.5 rounded-xl border border-white/20 hover:bg-white/10 text-white font-semibold text-sm transition-colors inline-flex items-center gap-2">
               Explore Committees <ArrowRight size={16} />
@@ -189,16 +189,16 @@ export default function Luminosa() {
       </section>
 
       {/* Conference Overview */}
-      <section className="section bg-brand-cream" data-testid="luminosa-overview">
+      <section className="section bg-brand-cream" data-testid="claritas-overview">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6">
               <SectionTitle
-                title="The Luminosa Advantage"
+                title="The Claritas Advantage"
                 subtitle="Built by seasoned MUN chairs and national delegates for an unmatched conference experience."
               />
               <p className="text-brand-muted mt-5 leading-relaxed">
-                Luminosa MUN provides high-caliber committee simulations designed for both first-time delegates and circuit veterans. We emphasize substantive debate, impartial executive board feedback, transparent awards, and comprehensive preparation materials.
+                Claritas MUN provides high-caliber committee simulations designed for both first-time delegates and circuit veterans. We emphasize substantive debate, impartial executive board feedback, transparent awards, and comprehensive preparation materials.
               </p>
 
               <div className="mt-8 space-y-4">
@@ -220,14 +220,14 @@ export default function Luminosa() {
               <div className="rounded-3xl bg-brand-ink p-8 text-white relative overflow-hidden shadow-2xl">
                 <div className="absolute inset-0 grain opacity-25" />
                 <div className="relative z-10">
-                  <div className="text-[11px] uppercase tracking-[0.2em] text-brand font-semibold">Luminosa Communiqué</div>
+                  <div className="text-[11px] uppercase tracking-[0.2em] text-brand font-semibold">Claritas Communiqué</div>
                   <h3 className="font-display text-2xl font-bold text-white mt-2">Delegate-First Philosophy</h3>
                   <p className="mt-4 text-white/70 text-sm leading-relaxed">
                     "Every delegate deserves a platform where their voice is heard, their position paper is thoroughly reviewed, and their parliamentary skills are genuinely sharpened."
                   </p>
 
                   <div className="mt-6 pt-6 border-t border-white/10 flex items-center justify-between text-xs text-white/60">
-                    <span>Luminosa Secretariat · Veritas Sphere</span>
+                    <span>Claritas Secretariat · Veritas Sphere</span>
                     <span className="font-mono text-brand">New Delhi, India</span>
                   </div>
                 </div>
@@ -238,11 +238,11 @@ export default function Luminosa() {
       </section>
 
       {/* Committees Directory */}
-      <section id="committees" className="section bg-white" data-testid="luminosa-committees">
+      <section id="committees" className="section bg-white" data-testid="claritas-committees">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <SectionTitle
             title="Simulated Committees"
-            subtitle="Choose your committee and agenda for Luminosa MUN 2026."
+            subtitle="Choose your committee and agenda for Claritas MUN 2026."
           />
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
@@ -280,7 +280,7 @@ export default function Luminosa() {
       </section>
 
       {/* Free Delegate Resources */}
-      <section className="section bg-brand-cream" data-testid="luminosa-resources">
+      <section className="section bg-brand-cream" data-testid="claritas-resources">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <SectionTitle
             title="Free Delegate Preparation Guides"
@@ -310,15 +310,15 @@ export default function Luminosa() {
       </section>
 
       {/* Registration Form */}
-      <section id="register" className="section bg-white" data-testid="luminosa-register-section">
+      <section id="register" className="section bg-white" data-testid="claritas-register-section">
         <div className="max-w-3xl mx-auto px-6 lg:px-10">
           <div className="bg-white rounded-3xl p-8 lg:p-10 border border-brand-line shadow-2xl">
             <SectionTitle
-              title="Luminosa MUN Registration & Inquiry"
+              title="Claritas MUN Registration & Inquiry"
               subtitle="Fill in your details below — our Delegate Affairs team will reach out via WhatsApp."
             />
 
-            <form onSubmit={onSubmit} className="mt-8 space-y-4" data-testid="luminosa-form">
+            <form onSubmit={onSubmit} className="mt-8 space-y-4" data-testid="claritas-form">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs uppercase tracking-wider text-brand-muted font-semibold mb-1">
@@ -330,7 +330,7 @@ export default function Luminosa() {
                     value={form.candidate_name}
                     onChange={(e) => setForm({ ...form, candidate_name: e.target.value })}
                     placeholder="Your full name"
-                    data-testid="luminosa-name"
+                    data-testid="claritas-name"
                   />
                 </div>
 
@@ -345,7 +345,7 @@ export default function Luminosa() {
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     placeholder="you@example.com"
-                    data-testid="luminosa-email"
+                    data-testid="claritas-email"
                   />
                 </div>
 
@@ -359,7 +359,7 @@ export default function Luminosa() {
                     value={form.mobile}
                     onChange={(e) => setForm({ ...form, mobile: e.target.value })}
                     placeholder="+91 9XXXXXXXXX"
-                    data-testid="luminosa-mobile"
+                    data-testid="claritas-mobile"
                   />
                 </div>
 
@@ -372,7 +372,7 @@ export default function Luminosa() {
                     value={form.institution}
                     onChange={(e) => setForm({ ...form, institution: e.target.value })}
                     placeholder="e.g. Delhi University / DPS"
-                    data-testid="luminosa-institution"
+                    data-testid="claritas-institution"
                   />
                 </div>
 
@@ -384,7 +384,7 @@ export default function Luminosa() {
                     className="input-soft"
                     value={form.experience_level}
                     onChange={(e) => setForm({ ...form, experience_level: e.target.value })}
-                    data-testid="luminosa-experience"
+                    data-testid="claritas-experience"
                   >
                     <option value="Beginner">Beginner (0–2 MUNs)</option>
                     <option value="Intermediate">Intermediate (3–6 MUNs)</option>
@@ -400,7 +400,7 @@ export default function Luminosa() {
                     className="input-soft"
                     value={form.preferred_committee}
                     onChange={(e) => setForm({ ...form, preferred_committee: e.target.value })}
-                    data-testid="luminosa-committee-select"
+                    data-testid="claritas-committee-select"
                   >
                     {COMMITTEES.map((c) => (
                       <option key={c.id} value={c.id}>
@@ -420,26 +420,26 @@ export default function Luminosa() {
                   value={form.notes}
                   onChange={(e) => setForm({ ...form, notes: e.target.value })}
                   placeholder="Tell us about country preferences or any questions regarding registration..."
-                  data-testid="luminosa-notes"
+                  data-testid="claritas-notes"
                 />
               </div>
 
               {/* WhatsApp Notification Notice */}
               <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200/70 text-xs text-emerald-800 flex items-center gap-2">
                 <MessageCircle size={16} className="text-emerald-600 shrink-0" />
-                <span>Submitting will also open WhatsApp with your pre-filled Luminosa MUN registration details.</span>
+                <span>Submitting will also open WhatsApp with your pre-filled Claritas MUN registration details.</span>
               </div>
 
               <button
                 type="submit"
                 className="btn-brand mt-4 w-full inline-flex items-center justify-center gap-2"
-                data-testid="luminosa-submit"
+                data-testid="claritas-submit"
               >
                 Submit Booking & Send Details on WhatsApp <ArrowRight size={18} />
               </button>
 
               {confirmation && (
-                <div className="mt-6 rounded-2xl bg-brand/10 border border-brand/20 p-5 text-brand-ink" data-testid="luminosa-confirmation">
+                <div className="mt-6 rounded-2xl bg-brand/10 border border-brand/20 p-5 text-brand-ink" data-testid="claritas-confirmation">
                   <div className="font-semibold">Registration Received</div>
                   <div className="text-sm mt-1">
                     Reference Ticket: <span className="font-mono">{confirmation.id}</span> — our Delegate Affairs coordinator will message you on WhatsApp shortly.

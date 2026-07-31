@@ -63,8 +63,8 @@ function Navbar() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-2.5 shrink-0">
-          <Link to="/luminosa" className="px-3.5 py-1.5 rounded-full bg-brand-ink text-white text-[11px] font-semibold hover:bg-brand transition-colors inline-flex items-center gap-1.5 shadow-sm" data-testid="nav-cta-luminosa">
-            <Sparkles size={12} className="text-brand" /> Luminosa MUN
+          <Link to="/claritas" className="px-3.5 py-1.5 rounded-full bg-brand-ink text-white text-[11px] font-semibold hover:bg-brand transition-colors inline-flex items-center gap-1.5 shadow-sm" data-testid="nav-cta-claritas">
+            <Sparkles size={12} className="text-brand" /> Claritas MUN
           </Link>
           <Link to="/consultation" className="btn-brand text-[11px] py-2 px-3" data-testid="nav-cta-book">
             Book Free Consultation
@@ -84,8 +84,8 @@ function Navbar() {
       {open && (
         <div className="lg:hidden border-t border-brand-line bg-white">
           <div className="px-5 py-5 flex flex-col gap-4">
-            <Link to="/luminosa" className="px-4 py-2.5 rounded-xl bg-brand-ink text-white text-sm font-semibold flex items-center justify-between" data-testid="nav-mobile-luminosa">
-              <span className="flex items-center gap-2"><Sparkles size={14} className="text-brand" /> Luminosa MUN Hub</span>
+            <Link to="/claritas" className="px-4 py-2.5 rounded-xl bg-brand-ink text-white text-sm font-semibold flex items-center justify-between" data-testid="nav-mobile-claritas">
+              <span className="flex items-center gap-2"><Sparkles size={14} className="text-brand" /> Claritas MUN Hub</span>
               <span>→</span>
             </Link>
             {NAV.map((n) => (

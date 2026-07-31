@@ -32,9 +32,9 @@ export default function Home() {
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-brand-ink text-[11px] uppercase tracking-[0.2em] font-semibold border border-brand-line">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand" /> Registered at Udyam · UDYAM-OD-05-0063562
               </div>
-              <Link to="/luminosa" className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-ink text-white text-[11px] font-semibold hover:bg-brand transition-all shadow-md border border-white/20 group">
+              <Link to="/claritas" className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-ink text-white text-[11px] font-semibold hover:bg-brand transition-all shadow-md border border-white/20 group">
                 <Sparkles size={13} className="text-brand group-hover:text-white transition-colors" />
-                <span>Looking for Model UN? Visit <strong>Luminosa MUN Hub</strong></span>
+                <span>Looking for Model UN? Visit <strong>Claritas MUN Hub</strong></span>
                 <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -136,8 +136,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Luminosa MUN Division Banner */}
-      <section className="section bg-brand-ink text-white relative overflow-hidden" data-testid="home-luminosa-banner">
+      {/* Claritas MUN Division Banner */}
+      <section className="section bg-brand-ink text-white relative overflow-hidden" data-testid="home-claritas-banner">
         <div className="absolute inset-0 grain opacity-25" />
         <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10 grid lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-8">
@@ -145,15 +145,15 @@ export default function Home() {
               <Sparkles size={13} /> Youth Diplomacy Division
             </div>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
-              Introducing <span className="text-brand">Luminosa MUN</span>
+              Introducing <span className="text-brand">Claritas MUN</span>
             </h2>
             <p className="mt-4 text-white/80 text-base sm:text-lg max-w-2xl leading-relaxed">
               Explore our dedicated Model United Nations hub featuring UNSC, UNGA & Crisis committee simulations, Rules of Procedure (RoP) bootcamps, and 1-on-1 delegate mentorship.
             </p>
           </div>
           <div className="lg:col-span-4 lg:text-right">
-            <Link to="/luminosa" className="btn-brand text-sm px-6 py-3.5 inline-flex items-center gap-2" data-testid="home-luminosa-cta">
-              Explore Luminosa MUN <ArrowRight size={18} />
+            <Link to="/claritas" className="btn-brand text-sm px-6 py-3.5 inline-flex items-center gap-2" data-testid="home-claritas-cta">
+              Explore Claritas MUN <ArrowRight size={18} />
             </Link>
           </div>
         </div>
