@@ -5,6 +5,7 @@ import { LOGO_URL } from "@/lib/config";
 
 const NAV = [
   { to: "/", label: "Home" },
+  { to: "/luminosa", label: "Luminosa MUN" },
   { to: "/services", label: "Services" },
   { to: "/scholarships", label: "Scholarships" },
   { to: "/apostille", label: "Apostille" },
