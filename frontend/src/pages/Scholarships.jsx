@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
-import { Search, Filter, ArrowRight, Globe, Award, X } from "lucide-react";
+import { Search, Filter, ArrowRight, Globe, Award, X, MessageCircle } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
 import { WHATSAPP_NUMBERS, saveToGoogleSheet } from "@/lib/config";
 import { SCHOLARSHIPS } from "@/lib/scholarshipsData";
@@ -307,9 +307,13 @@ function ApplyModal({ scholarship, onClose }) {
             <Field label="Email"><input required type="email" className="input-soft" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} data-testid="apply-email" /></Field>
             <Field label="Language Exam (IELTS/TOPIK/JLPT…)"><input className="input-soft" value={form.language_exam} onChange={(e) => setForm({ ...form, language_exam: e.target.value })} data-testid="apply-language" /></Field>
             <Field label="Birth Date"><input type="date" required className="input-soft" value={form.birth_date} onChange={(e) => setForm({ ...form, birth_date: e.target.value })} data-testid="apply-birth" /></Field>
-            <div className="sm:col-span-2 mt-2">
+            <div className="sm:col-span-2 p-3 rounded-xl bg-emerald-50 border border-emerald-200/70 text-xs text-emerald-800 flex items-center gap-2">
+              <MessageCircle size={16} className="text-emerald-600 shrink-0" />
+              <span>Submitting will also open WhatsApp with your application details pre-filled.</span>
+            </div>
+            <div className="sm:col-span-2">
               <button type="submit" className="btn-brand w-full inline-flex items-center justify-center gap-2" data-testid="apply-submit">
-                Submit application <ArrowRight size={18} strokeWidth={1.7} />
+                Submit & send details on WhatsApp <ArrowRight size={18} strokeWidth={1.7} />
               </button>
             </div>
           </form>

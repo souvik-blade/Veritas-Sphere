@@ -4,30 +4,59 @@ export const WHATSAPP_NUMBERS = [
   { label: "+91 94661 45196", number: "919466145196" },
 ];
 
+export const GOOGLE_SHEET_URL =
+  process.env.REACT_APP_GOOGLE_SHEET_URL ||
+  "https://script.google.com/macros/s/AKfycbySBtOBiigCcMON-rrbT5-kBnSqcJtUvsIbkvZKs-lkMJUiI_WzM0gt4lKV3dMyBmwX/exec";
+
 export const FORM_SUBMIT_EMAIL =
   process.env.REACT_APP_FORM_SUBMIT_EMAIL || "veritassphere26@gmail.com";
 
 export const saveToGoogleSheet = async (data) => {
-  if (!FORM_SUBMIT_EMAIL) return;
-  try {
-    const payload = {
-      _subject: `New Inquiry: ${data.form_type || "Website Form"}`,
-      _template: "table",
-      _captcha: "false",
-      Submitted_At: new Date().toLocaleString("en-IN"),
-      ...data,
-    };
+  const payload = {
+    Submitted_At: new Date().toLocaleString("en-IN"),
+    ...data,
+  };
 
-    await fetch(`https://formsubmit.co/ajax/${FORM_SUBMIT_EMAIL}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
-  } catch (err) {
-    console.warn("Form submission note:", err);
+  // 1. Send Email alert via FormSubmit (No backend)
+  if (FORM_SUBMIT_EMAIL) {
+    try {
+      fetch(`https://formsubmit.co/ajax/${FORM_SUBMIT_EMAIL}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          _subject: `New Inquiry: ${data.form_type || "Website Form"}`,
+          _template: "table",
+          _captcha: "false",
+          ...payload,
+        }),
+      }).catch((err) => console.warn("Email alert submission note:", err));
+    } catch (err) {
+      console.warn("Email alert error:", err);
+    }
+  }
+
+  // 2. Send to Google Sheet via Apps Script URL
+  if (GOOGLE_SHEET_URL) {
+    try {
+      const params = new URLSearchParams();
+      Object.keys(payload).forEach((key) => {
+        if (payload[key] !== undefined && payload[key] !== null) {
+          params.append(key, String(payload[key]));
+        }
+      });
+
+      fetch(GOOGLE_SHEET_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: params.toString(),
+      }).catch((err) => console.warn("Google Sheet submission note:", err));
+    } catch (err) {
+      console.warn("Google Sheet error:", err);
+    }
   }
 };
 

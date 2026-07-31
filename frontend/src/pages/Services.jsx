@@ -338,8 +338,13 @@ function BookingForm() {
         </div>
       </div>
 
-      <button type="submit" className="btn-brand mt-7 w-full inline-flex items-center justify-center gap-2" data-testid="booking-submit">
-        Submit booking <ArrowRight size={18} strokeWidth={1.7} />
+      <div className="mt-4 p-3 rounded-xl bg-emerald-50 border border-emerald-200/70 text-xs text-emerald-800 flex items-center gap-2">
+        <MessageCircle size={16} className="text-emerald-600 shrink-0" />
+        <span>Submitting will also open WhatsApp with your pre-filled package booking details.</span>
+      </div>
+
+      <button type="submit" className="btn-brand mt-5 w-full inline-flex items-center justify-center gap-2" data-testid="booking-submit">
+        Submit & send details on WhatsApp <ArrowRight size={18} strokeWidth={1.7} />
       </button>
 
       {confirmation && (

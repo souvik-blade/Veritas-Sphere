@@ -101,8 +101,13 @@ export default function Contact() {
                 <Field label="Subject" required><input required className="input-soft" value={form.subject} onChange={(e) => setForm({ ...form, subject: e.target.value })} placeholder="How can we help?" data-testid="contact-subject" /></Field>
                 <Field label="Message" required span={2}><textarea required className="input-soft min-h-[140px]" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Tell us more about your inquiry…" data-testid="contact-message" /></Field>
               </div>
-              <button type="submit" className="btn-brand mt-7 w-full inline-flex items-center justify-center gap-2" data-testid="contact-submit">
-                <Send size={16} strokeWidth={1.7} /> Send message
+              <div className="mt-4 p-3 rounded-xl bg-emerald-50 border border-emerald-200/70 text-xs text-emerald-800 flex items-center gap-2">
+                <MessageCircle size={16} className="text-emerald-600 shrink-0" />
+                <span>Submitting this form will also open WhatsApp with your details pre-filled for instant direct chat.</span>
+              </div>
+
+              <button type="submit" className="btn-brand mt-5 w-full inline-flex items-center justify-center gap-2" data-testid="contact-submit">
+                <Send size={16} strokeWidth={1.7} /> Submit & send details on WhatsApp
               </button>
               {confirmation && (
                 <div className="mt-6 rounded-2xl bg-brand/10 border border-brand/20 p-5 text-brand-ink" data-testid="contact-confirmation">
