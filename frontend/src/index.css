@@ -28,15 +28,18 @@
 }
 
 * { border-color: hsl(var(--border)); }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
 
-body {
+body, #root {
   margin: 0;
   font-family: "Work Sans", system-ui, sans-serif;
   background: #FDFBF7;
   color: #2A1614;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
 }
 
 ::selection { background: #ec5c53; color: white; }
