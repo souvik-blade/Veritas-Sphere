@@ -4,34 +4,30 @@ export const WHATSAPP_NUMBERS = [
   { label: "+91 94661 45196", number: "919466145196" },
 ];
 
-export const GOOGLE_SHEET_URL =
-  process.env.REACT_APP_GOOGLE_SHEET_URL ||
-  "https://script.google.com/macros/s/AKfycbySBtOBiigCcMON-rrbT5-kBnSqcJtUvsIbkvZKs-lkMJUiI_WzM0gt4lKV3dMyBmwX/exec";
+export const FORM_SUBMIT_EMAIL =
+  process.env.REACT_APP_FORM_SUBMIT_EMAIL || "veritassphere26@gmail.com";
 
 export const saveToGoogleSheet = async (data) => {
-  if (!GOOGLE_SHEET_URL) return;
+  if (!FORM_SUBMIT_EMAIL) return;
   try {
     const payload = {
-      timestamp: new Date().toLocaleString("en-IN"),
+      _subject: `New Inquiry: ${data.form_type || "Website Form"}`,
+      _template: "table",
+      _captcha: "false",
+      Submitted_At: new Date().toLocaleString("en-IN"),
       ...data,
     };
 
-    // Try sending via URLSearchParams first
-    const params = new URLSearchParams();
-    Object.keys(payload).forEach((key) => {
-      if (payload[key] !== undefined && payload[key] !== null) {
-        params.append(key, String(payload[key]));
-      }
-    });
-
-    await fetch(GOOGLE_SHEET_URL, {
+    await fetch(`https://formsubmit.co/ajax/${FORM_SUBMIT_EMAIL}`, {
       method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: params.toString(),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(payload),
     });
   } catch (err) {
-    console.warn("Google Sheet submission note:", err);
+    console.warn("Form submission note:", err);
   }
 };
 
